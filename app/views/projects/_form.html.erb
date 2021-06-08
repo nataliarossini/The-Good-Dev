@@ -1,0 +1,13 @@
+<%= simple_form_for (@project) do |f| %>
+  <%= f.input :title, label: 'Project title' %>
+  <%= f.input :description, label: 'Project description' %>
+  <%= f.input :details, label: 'Project details' %>
+  <%= f.input :location, label: 'Project location' %>
+  <%= f.input :start_date, html5: true, label: 'Project start date' %>
+  <%= f.input :end_date, html5: true, label: 'Project end date' %>
+  <%= f.input :remote, 
+              :as => :radio_buttons, 
+              :collection => [['Yes', true],['No', false]], 
+              :label => "Remote" %>
+  <%= f.button :submit, current_page?(action: 'new') ? "Create Project" : "Edit Project", class: "btn-success" %>
+<% end %>
