@@ -1,5 +1,6 @@
 class Organization < ApplicationRecord
   belongs_to :user
+  has_many :projects
   has_many :reviews
   validates :name, presence: true, uniqueness: true, length: { minimum: 2, maximum: 50 }
   validates :registration, presence: true, uniqueness: true
