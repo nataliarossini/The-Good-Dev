@@ -3,5 +3,10 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  enum user_type: [ :volunteer, :organization ]
+  has_many :my_skills
+  has_many :skills, through: :my_skills
+  has_many :reviews
+  has_many :applications
+  has_many :projects, through: :applications
+  enum user_type: [:volunteer, :organization]
 end
