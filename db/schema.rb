@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2021_06_08_111203) do
     t.index ["project_id"], name: "index_applications_on_project_id"
     t.index ["user_id"], name: "index_applications_on_user_id"
   end
-
+  
   create_table "my_skills", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "skill_id", null: false
