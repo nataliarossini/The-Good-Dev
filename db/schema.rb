@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_08_111203) do
+ActiveRecord::Schema.define(version: 2021_06_08_151533) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "applications", force: :cascade do |t|
     t.text "motivation_letter"
-    t.integer "status"
+    t.integer "status", default: 0
     t.date "decision_date"
     t.bigint "user_id", null: false
     t.bigint "project_id", null: false
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2021_06_08_111203) do
     t.index ["project_id"], name: "index_applications_on_project_id"
     t.index ["user_id"], name: "index_applications_on_user_id"
   end
-  
+
   create_table "my_skills", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "skill_id", null: false
