@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2021_06_08_151533) do
     t.string "name"
     t.string "registration"
     t.string "url"
-    t.string "type"
+    t.string "category"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -55,12 +55,10 @@ ActiveRecord::Schema.define(version: 2021_06_08_151533) do
     t.date "start_date"
     t.date "end_date"
     t.boolean "remote"
-    t.bigint "user_id", null: false
     t.bigint "organization_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["organization_id"], name: "index_projects_on_organization_id"
-    t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -105,7 +103,6 @@ ActiveRecord::Schema.define(version: 2021_06_08_151533) do
   add_foreign_key "my_skills", "users"
   add_foreign_key "organizations", "users"
   add_foreign_key "projects", "organizations"
-  add_foreign_key "projects", "users"
   add_foreign_key "reviews", "organizations"
   add_foreign_key "reviews", "users"
 end
