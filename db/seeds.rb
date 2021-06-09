@@ -33,6 +33,17 @@ organization.save!
 #   description: 'Our organization help reduce deforestation by recicling paper',
 #   address: 'Scranton, Pa, USA'
 #   )
+# emma = User.create(
+#   email:'emma@abc.com',
+#   password: 'Abc1234.',
+#   first_name: 'Emma',
+#   last_name: 'Cardon',
+#   user_type: :volunteer,
+#   description: "Freshly trained developer, I have experience teaching",
+#   address: 'London',
+#   github: 'https://github.com/',
+#   linkedin: 'https://www.linkedin.com/',
+#   )
 
 user = User.create(
   email: 'kevin@email.com',
@@ -56,4 +67,11 @@ Project.create(
   remote: true,
   organization_id: organization.id
 
+  )
+
+20.times do
+  puts 'creating skills'
+  skill = Skill.create!(
+    name: Faker::Job.key_skill,
+  puts 'skills created'
   )
