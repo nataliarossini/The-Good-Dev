@@ -9,4 +9,5 @@ class User < ApplicationRecord
   has_many :applications
   has_many :projects, through: :applications
   enum user_type: [:volunteer, :organization]
+  has_one :organization
 end

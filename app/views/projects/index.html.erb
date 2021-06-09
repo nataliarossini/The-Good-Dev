@@ -1,0 +1,14 @@
+<% @projects.each do |project| %>
+  <%= link_to project_path(project) do %>
+    <%= project.title %>
+    <%= project.description %>
+    <%= project.location %>
+    <%= project.start_date %>
+    <%= project.end_date %>
+    <br>
+  <% end %>
+<% end %>
+
+<% if current_user.organization? %>
+  <%= link_to "Create a new Project", new_project_path, class: 'btn-success' %>
+<% end %>

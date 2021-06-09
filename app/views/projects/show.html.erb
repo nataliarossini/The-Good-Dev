@@ -1,0 +1,13 @@
+<%= @project.title %>
+<%= @project.description %>
+<%= @project.details %>
+<%= @project.location %>
+<%= @project.start_date %>
+<%= @project.end_date %>
+
+<% if @project.organization == current_user.organization %>
+  <%= link_to "Update the Project", edit_project_path(@project), class: 'btn-success' %>
+  <%= link_to "Remove this Project", project_path(@project), method: :delete, class: 'btn-danger' %>
+<% end %>
+
+<%= link_to "Back to Projects", projects_path, class: 'btn-primary' %>
