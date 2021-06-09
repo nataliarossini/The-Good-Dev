@@ -1,7 +1,7 @@
 <%= link_to 'My Profile', user_path(current_user)  %>
 <div class="container">
   <h1>Your Dashboard</h1>
-
+  <% if @user.volunteer? %>
   <div class="row">
     <div class="col-12 col-md-6 offset-lg-3">
       <div class="bg-white rounded p-3 shadow">
@@ -13,9 +13,17 @@
     </div>
 
     <div>
-      <% @user.my_skills.each do |my_skill| %>
-        <%= my_skill.skill.name %>
-      <% end %>
+        <% @user.my_skills.each do |my_skill| %>
+          <%= my_skill.skill.name %>
+        <% end %>
     </div>
+    <% else %>
+      <% @projects.each do |project| %>
+        <span><%= link_to "#{project.title}", project_path(project)  %></span>
+      <% end %>
+      <div>
+        <%= link_to 'Create a Project', new_project_path %>
+      </div>
+    <% end %>
   </div>
 </div>
