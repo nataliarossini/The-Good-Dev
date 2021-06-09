@@ -1,0 +1,6 @@
+<% if @user.organization? %>
+  <%= render 'organization' %>
+  <% else %>
+  <%= render 'volunteer' %>
+<% end %>
+
