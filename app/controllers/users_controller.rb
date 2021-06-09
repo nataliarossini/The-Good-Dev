@@ -11,5 +11,6 @@ class UsersController < ApplicationController
     @user = current_user
     @applications = @user.applications
     @projects = @user.projects
+    @my_skill = MySkill.new
   end
 end

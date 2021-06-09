@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show] do
     resources :reviews, only: [:new, :create]
     get '/my_skills', to: 'users#my_skills', as: :my_skills
+    resources :my_skills, only:[:create]
   end
   resources :organizations, only: [:new, :create]
 end
