@@ -1,0 +1,20 @@
+<div class="container">
+  <h1>Your Dashboard</h1>
+
+  <div class="row">
+    <div class="col-12 col-md-6 offset-lg-3">
+      <div class="bg-white rounded p-3 shadow">
+        <%= simple_form_for [@user, @my_skill] do |f| %>
+          <%= f.association :skill, prompt: 'Select a skill', input_html: { class: 'select2' } %>
+          <%= f.submit 'Add a Skill', class: 'btn btn-flat' %>
+        <% end %>
+      </div>
+    </div>
+
+    <div>
+      <% @user.my_skills.each do |my_skill| %>
+        <%= my_skill.skill.name %>
+      <% end %>
+    </div>
+  </div>
+</div>
