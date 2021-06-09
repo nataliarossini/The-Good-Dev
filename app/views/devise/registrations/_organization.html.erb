@@ -28,18 +28,16 @@
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "Address" }%>
-  </div>
-  <h3>Step 2</h3>
-  <div class="form-inputs">
-<!--  -->
     <%= f.input :description,
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "Tell the volunteers about your organization" }%>
+
   </div>
 
   <div class="form-actions">
     <%= f.button :submit, "Sign up" %>
+
   </div>
 <% end %>
 

@@ -12,4 +12,8 @@ class UsersController < ApplicationController
     @applications = @user.applications
     @projects = @user.projects
   end
+
+  def create
+    # redirect_to new_user_organization_path(current_user.id) if user.save
+  end
 end
