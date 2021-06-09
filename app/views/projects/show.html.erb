@@ -5,7 +5,7 @@
 <%= @project.start_date %>
 <%= @project.end_date %>
 
-<% if @project.organization.user == current_user %>
+<% if @project.organization.user_id == current_user.id %>
   <%= link_to "Update the Project", edit_project_path(@project), class: 'btn-success' %>
   <%= link_to "Remove this Project", project_path(@project), method: :delete, class: 'btn-danger' %>
 <% else %>
