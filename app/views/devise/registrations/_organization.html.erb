@@ -1,6 +1,6 @@
 <h2>Sign up as Org</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name, partial: :organization)) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { registrations: "registrations" }
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get '/dashboard', to: 'users#dashboard', as: :dashboard
@@ -10,6 +10,6 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show] do
     resources :reviews, only: [:new, :create]
     get '/my_skills', to: 'users#my_skills', as: :my_skills
-    resources :organizations, only: [:new, :create]
   end
+  resources :organizations, only: [:new, :create]
 end

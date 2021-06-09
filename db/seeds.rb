@@ -33,6 +33,17 @@ organization.save!
 #   description: 'Our organization help reduce deforestation by recicling paper',
 #   address: 'Scranton, Pa, USA'
 #   )
+emma = User.create(
+  email:'emma@abc.com',
+  password: '1234567.',
+  first_name: 'Emma',
+  last_name: 'Cardon',
+  user_type: :volunteer,
+  description: "Freshly trained developer, I have experience teaching",
+  address: 'London',
+  github: 'https://github.com/',
+  linkedin: 'https://www.linkedin.com/',
+  )
 
 user = User.create(
   email: 'kevin@email.com',
@@ -56,4 +67,34 @@ Project.create(
   remote: true,
   organization_id: organization.id
 
+  )
+
+skills_list = ['Team work', 'Teacher', 'Ruby', 'Rails', 'Python', 'CSS', 'Javascript', 'Front-end', 'Back-end']
+
+team_skill = Skill.create(
+    name: skills_list[0]
+  )
+teach_skill = Skill.create(
+    name: skills_list[1]
+  )
+ruby_skill = Skill.create(
+    name: skills_list[2]
+  )
+rails_skill = Skill.create(
+    name: skills_list[3]
+  )
+python_skill = Skill.create(
+    name: skills_list[4]
+  )
+css_skill = Skill.create(
+    name: skills_list[5]
+  )
+js_skill = Skill.create(
+    name: skills_list[6]
+  )
+fe_skill = Skill.create(
+    name: skills_list[7]
+  )
+ba_skill = Skill.create(
+    name: skills_list[8]
   )
