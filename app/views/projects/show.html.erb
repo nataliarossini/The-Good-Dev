@@ -5,6 +5,13 @@
 <%= @project.start_date %>
 <%= @project.end_date %>
 
+<% if @project.photos.attached? %>
+  <% @project.photos.each do |photo| %>
+  <!-- style as you wish -->
+    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
+<% end %>
+
 <% if @project.organization.user_id == current_user.id %>
   <%= link_to "Update the Project", edit_project_path(@project), class: 'btn-success' %>
   <%= link_to "Remove this Project", project_path(@project), method: :delete, class: 'btn-danger' %>
