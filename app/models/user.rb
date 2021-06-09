@@ -10,4 +10,5 @@ class User < ApplicationRecord
   has_many :projects, through: :applications
   enum user_type: [:volunteer, :organization]
   has_one :organization
+  has_one_attached :photo
 end
