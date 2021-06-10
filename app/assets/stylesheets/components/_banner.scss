@@ -1,0 +1,17 @@
+.banner {
+  background: asset-url('banner.svg') no-repeat right;
+  background-color: #EEEEEE;
+  height: 80vh;
+  text-indent: inherit;
+  h1 {
+    color: #393E46;
+    font-weight: bolder;
+    padding-top: 48px;
+    padding-left: 32px;
+    font-size: 3em;
+  }
+
+}
+.banner-btns {
+  margin: 32px;
+}
