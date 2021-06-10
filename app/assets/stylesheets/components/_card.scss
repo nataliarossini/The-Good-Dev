@@ -1,9 +1,9 @@
 .container-cards {
-  width: 90vw;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 16px;
+      flex-grow: 1;
+      margin-top: 32px;
+      display: grid;
+      height: auto;
+      grid-gap: 16px;
 
   .card-project {
     background-color: black;

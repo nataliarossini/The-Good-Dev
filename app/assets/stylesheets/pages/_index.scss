@@ -1,3 +1,75 @@
 // Import page-specific CSS files here.
 @import "home";
 
+.container-main {
+  display: flex;
+
+  .holder {
+    margin: 32px;
+
+    h1 {
+      color: #AAD8D3;
+    }
+
+    .filter-bar {
+
+    }
+
+  .container-sidebar {
+    flex-shrink: 0;
+    width: 360px;
+    height: 100%;
+    position: sticky;
+    top: 0;
+    background-color: #AAD8D3;
+
+    .container-news {
+      height: 50%;
+      margin: 16px;
+      background-color: white;
+    }
+    .container-reviews {
+      height: 50%;
+      margin: 16px;
+      background-color: white;
+
+      .card-review {
+        height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #E5E5E5;
+
+        .review-avatar {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          height: 100%;
+          margin: 8px 0px;
+          flex: 0 0 33%;
+
+          img {
+            max-height: 40%;
+            margin-bottom: 8px;
+          }
+
+          p {
+            margin: 0px;
+            font-size: 12px;
+          }
+        }
+        .review-content {
+          margin: 8px;
+          flex: 0 0 66%;
+
+          p {
+            margin: 0px;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}
+}
