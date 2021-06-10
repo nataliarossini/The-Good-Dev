@@ -11,7 +11,7 @@
   <h2>How it works</h2>
   <p>If you are a IT professional you can apply to work as a volunteer. We provide a range of intitutions willing to host you in exchange of your services. </p>
   <div class="d-flex">
-    <%= image_tag 'img1', class: 'img-home' %>
+    <%= image_tag 'img1.svg', class: 'img-home' %>
     <span>1 Join our community</span>
     <span>2 Aplly to a project</span>
     <span>3 Wait for your
@@ -25,11 +25,14 @@ application approval</span>
     <span>2 Aplly to a project</span>
     <span>3 Wait for your application approval</span>
     <span>4 Gain experience while working in meaningful projects!</span>
-    <%= image_tag 'img2', class: 'img-home' %>
+    <%= image_tag 'img2.svg', class: 'img-home' %>
   </div>
 
   <div class="recents">
     <h3>Recently posted</h3>
+    <div class="recent-cards"></div>
+    <% @projects.each do |project| %>
 
+    <% end %>
   </div>
 </div>
