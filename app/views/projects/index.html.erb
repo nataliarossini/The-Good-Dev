@@ -6,7 +6,13 @@
     </div>
     <div class="container-cards">
       <% @projects.each do |project| %>
-        <%= link_to project_path(project), :class => "card-project" do %>
+        <% if project.photos.attached? %>
+          <% photo_source = cl_image_path project.photos.first.key %>
+        <% else %>
+          <% photo_source = image_path("project_default_background.jpg") %>
+        <% end %>
+        <%= link_to project_path(project), :class => "card-project",
+                                           :style => "background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(#{photo_source});" do %>
           <div class="cell">
             <h3> <i class="fas fa-map-pin"></i> <%= project.location %> </h3>
           </div>
@@ -43,3 +49,4 @@
     </div>
   </div>
 </div>
+<%# url('<%= project.photos.first ? cl_image_path project.photos.first.key : %>
