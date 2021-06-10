@@ -1,5 +1,7 @@
 .page-form {
   background-color: rgba(170, 216, 211, .73);
+  width: 100vw;
+  height: 92vh;
 
   h2 {
     background-color: rgba(170, 216, 211, 1);
@@ -9,29 +11,30 @@
     font-size: 2em;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
   }
-}
 
-.container {
-  width: 80%;
-
-  .form-inputs {
-    padding: 8px 0px;
-
-    .division {
-      display: flex;
-      justify-content: center;
+  .container {
+    width: 40%;
+  
+    .form-inputs {
+      padding: 8px 0px;
+  
+      .division {
+        display: flex;
+        justify-content: center;
+      }
+      .form-group {
+        flex-grow: 1;
+        padding: 0 8px;
+        
+      }
     }
-    .form-group {
-      flex-grow: 1;
-      padding: 0 8px;
-      
-    }
-  }
-
-  .form-actions {
-    text-align: center;
-    .main-btn {
-      background-color: #5BCF9C;
+  
+    .form-actions {
+      text-align: center;
+      .main-btn {
+        background-color: #5BCF9C;
+        margin-bottom: 20px;
+      }
     }
   }
 }
