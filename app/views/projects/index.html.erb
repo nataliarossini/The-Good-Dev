@@ -34,7 +34,6 @@
               <p> <%= reviewer.organization? ?  reviewer.organization.name : "#{reviewer.first_name.capitalize}" %> </p>
               <p> <%= reviewer.organization? ?  "Host" : "Volunteer" %> </p>
             <% end %>
-
           </div>
           <div class="review-content">
             <p><em>"<%= review.content %>"</em>  </p>
