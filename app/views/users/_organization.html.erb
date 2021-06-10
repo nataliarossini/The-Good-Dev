@@ -1,6 +1,82 @@
-<div class="flex-box">
-  <div class="profile-bar">
-  <h2><%= @user.organization.name %></h2>
+<div class="profile-main-container">
+  <div class="flex-box">
+    <div class="profile-bar">
+      <div class="flex-item">
+        <%= cl_image_tag @user.photo.key, class: "profile-bar-photo" %>
+        <div class="profile-header">
+          <h2><%= @organization.name %></h2>
+          <p><%= @user.user_type %></p>
+          <% #@organization.reviews.each %>
+        </div>
+      </div>
+        <div class="profile-bar-content">
+          <p><i class="fas fa-map-marker-alt"></i> <%= @user.address.upcase %></p>
+          <h3>About us</h3>
+          <p><%= @user.description %></p>
+          <h3>What do we offer</h3>
+          <p><i class="fas fa-check"></i> Acomodation in a separated room</p>
+          <p><i class="fas fa-check"></i> Breakfast</p>
+          <p><i class="fas fa-check"></i> Pet friendly</p>
+          <p><i class="fas fa-check"></i> Parking lot</p>
+          <p><i class="fas fa-check"></i> Laguage and culture exchange</p>
+          <h4>Languages <i class="far fa-comment-dots"></i></h4>
+          <p>English</p>
+          <p>Spanish</p>
+          <p>French</p>
+        </div>
+        <div id="accept-volunteers">
+          <%= image_tag "laptop.png", alt: "laptop" %>
+          <p>This host accept remote volunteers</p>
+        </div>
 
+    </div>
+    <div class="profile-container">
+      <div class="header">
+        <h3>Projects</h3>
+      </div>
+      <div class="card-container">
+        <% @projects.each do |project| %>
+          <div class="small-cards">
+            <%= link_to project_path(project) do %>
+              <% if project.photos.attached? %>
+                <% cl_image_tag project.photos.first.key %>
+              <% else %>
+                <% image_tag("project_default_background.jpg") %>
+              <% end %>
+            <% end %>
+              <div class="project-info">
+                <h2><%= project.title %></h2>
+                <p><%= project.description %></p>
+                <%= link_to 'See project', project_path(project) %>
+              </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="header mt-3">
+        <h3>Volunteers Feedback</h3>
+      </div>
+        <div class="reviews">
+          <% @organization.reviews.each do |review| %>
+          <div class="profile-review-card">
+            <div class="review-info">
+              <% reviewer = User.find(review.author_id) %>
+                <% if reviewer.photo.attached? %>
+                  <%= cl_image_tag reviewer.photo.key, class: 'avatar-large' %>
+                  <!-- <p> <%#= reviewer.organization? ?  reviewer.organization.name : "#{reviewer.first_name.capitalize}" %> </p> -->
+                <% else %>
+                  <%= image_tag "default-avt.png", class: 'avatar-large' %>
+                <% end %>
+              <div class="rating-stars">
+                <% review.rating.times do %>
+                  <i class="fas fa-star"></i>
+                <% end %>
+              </div>
+            </div>
+            <%= review.content %>
+            <p> <%= reviewer.organization? ?  reviewer.organization.name : "#{reviewer.first_name.capitalize}" %> </p>
+          </div>
+          <% end %>
+        </div>
+    </div>
   </div>
 </div>
