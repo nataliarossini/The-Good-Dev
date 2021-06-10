@@ -33,7 +33,12 @@ application approval</span>
     <div class="container-cards">
       <% @projects.reverse.first(3).each do |project| %>
         <%= link_to project_path(project) do %>
-          <div class="card-project" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path project.photos.first.key unless project.photos.nil? %>');">
+          <% if project.photos.attached? %>
+            <% photo_source = cl_image_path project.photos.first.key %>
+          <% else %>
+            <% photo_source = image_path("project_default_background.jpg") %>
+          <% end %>
+          <div class="card-project" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= photo_source %>);">
             <div class="cell">
               <p><i class="fas fa-map-pin"></i> <%= project.location %> </p>
             </div>
