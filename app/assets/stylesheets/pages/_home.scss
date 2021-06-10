@@ -1,1 +1,22 @@
 // Specific CSS for your home-page
+.container {
+  h2 {
+    text-align: center;
+    padding: 32px;
+    font-size: 2.5em;
+  }
+  p {
+    font-weight: lighter;
+    font-size: 1.5em;
+  }
+}
+
+.img-home {
+  height: 280px;
+}
+
+.recents {
+  h3 {
+    color: #9C9696;
+  }
+}
