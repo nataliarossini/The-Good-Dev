@@ -12,43 +12,8 @@
     }
 
     .filter-bar {
-  
+
     }
-
-    .container-cards {
-      flex-grow: 1;
-      margin-top: 32px;
-      display: grid;
-      height: auto;
-      grid-gap: 16px;
-
-      .card-project {
-        background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), asset-url('project_default_background.jpg');
-        background-color: black;
-        background-size: cover;
-        background-position: center;
-        color: white;
-        height: 250px;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: space-between;
-        opacity: 0.9;
-
-        &:hover {
-          opacity: 1;
-        }
-
-        .cell {
-          margin: 16px;
-
-          p {
-            margin: 0;
-          }
-        }
-      }
-    }
-  }
 
   .container-sidebar {
     flex-shrink: 0;
@@ -106,4 +71,5 @@
       }
     }
   }
+}
 }
