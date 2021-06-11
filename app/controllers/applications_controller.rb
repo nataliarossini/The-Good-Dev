@@ -8,7 +8,8 @@ class ApplicationsController < ApplicationController
     @project = Project.find(params[:project_id])
     @application = Application.new(application_params)
     @application.project = @project
-    if @order.save
+    @application.user = current_user
+    if @application.save
       redirect_to dashboard_path
     else
       render :new

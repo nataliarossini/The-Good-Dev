@@ -1,0 +1,178 @@
+.container-main {
+  display: flex;
+  
+  .holder {
+    margin: 16px;
+    width: 80vw;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    .card-dashboard {
+      height: 360px;
+      text-align: center;
+      flex: 0 0 30%;
+      padding: 0px 16px 0px 0px;
+      
+      img {
+        height: 60%;
+        margin-top: 32px;
+        border-radius: 50%;
+      }
+
+      h4 {
+        border-bottom: 2px solid #E5E5E5;
+        margin: 8px;
+        padding-bottom: 8px;
+      }
+
+      .capsule {
+        margin: 16px 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        p {
+          margin-right: 8px;
+        }
+      }
+    }
+
+    .applications-projects {
+      flex: 0 0 70%;
+      padding: 0px 16px;
+
+      .applications {
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        padding: 16px;
+        h3 {
+          margin-bottom: 16px;
+          padding-bottom: 8px;
+          border-bottom: 2px solid #E5E5E5;
+        }
+
+        h4 {
+          margin-top: 16px;
+        }
+
+        p {
+          margin: 0px;
+        }
+      }
+      .projects {
+        margin-top: 32px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        padding: 16px;
+        h3 {
+          margin-bottom: 16px;
+          padding-bottom: 8px;
+          border-bottom: 2px solid #E5E5E5;
+        }
+        .dashboard-card-project {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          height: 250px;
+          margin: 16px;
+          //padding: 16px;
+          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+          img {
+            height: 100%;
+          }
+
+          .project-info {
+            height: 100%;
+            padding: 16px;
+            position: relative;
+
+            h4 {
+              color: #00ADB5;
+              font-weight: bold;
+            }
+
+
+            a {
+              text-align: right;
+              position: absolute;
+              bottom: 16px;
+              right: 16px;
+              color: #9C9696;
+
+              &:hover {
+                color: #495057;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .container-sidebar {
+    flex-shrink: 0;
+    width: 20vw;
+    height: 92vh;
+    position: sticky;
+    top: 0;
+    right: 0;
+    background-color: #AAD8D3;
+  
+    
+    h4 {
+      font-size: 2vh;
+      margin: 0px;
+      padding: 2vh 0vh 1vh 2vh;
+      border-bottom: 1px solid #E5E5E5;
+    }
+  
+    .container-news {
+      height: 43vh;
+      margin: 2vh;
+      background-color: white;
+    }
+    .container-projects {
+      height: 43vh;
+      margin: 2vh;
+      background-color: white;
+  
+      .card-project {
+        height: 12.5vh;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #E5E5E5;
+  
+        .review-avatar {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          height: 100%;
+          margin: 8px 0px;
+          flex: 0 0 33%;
+  
+          img {
+            max-height: 50%;
+            margin-bottom: 4px;
+            border-radius: 50%;
+          }
+  
+          p {
+            margin: 0px;
+            font-size: 12px;
+          }
+        }
+        .review-content {
+          padding-right: 16px;
+          flex: 0 0 66%;
+  
+          p {
+            
+            margin: 0px;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}
