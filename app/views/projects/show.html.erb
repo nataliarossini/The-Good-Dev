@@ -19,7 +19,7 @@
         </div>
         <div class="proj-org mt-4">
           <div class="pict-org">
-            <h3>About <%= link_to "#{@project.organization.name}", user_path(@project.organization) %></h3>
+            <h3>About <%= link_to "#{@project.organization.name}", user_path(@project.organization.user) %></h3>
             <% if @project.organization.user.photo.attached? %>
               <%= cl_image_tag @project.organization.user.photo.key %>
             <% else %>
