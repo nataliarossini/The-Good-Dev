@@ -21,7 +21,7 @@
           <div class="pict-org">
             <h3>About <%= @project.organization.name %></h3>
             <% if @project.organization.user.photo.attached? %>
-              <%= cl_image_path @user.photo.key %>
+              <%= cl_image_tag @project.organization.user.photo.key %>
             <% else %>
               <%= image_tag "default-avt.png" %>
             <% end %>
@@ -43,7 +43,11 @@
               <%= link_to "Delete this Project", project_path(@project), method: :delete, class: "btn btn-coral" %>
             </div>
           <% else %>
-            <%= link_to "Leave a review", new_project_review_path(@project), class: 'btn btn-light-green' %>
+            <% if current_user.applications.select { |a| a.project_id == @project.id }.length == 0 %>
+              <%= link_to "Apply", new_project_application_path(@project), class: 'btn btn-light-green' %>
+            <% else %>
+              <%= link_to "Leave a review", new_project_review_path(@project), class: 'btn btn-light-green' %>
+            <% end %>
           <% end %>
         </div>
       </div>
