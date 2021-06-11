@@ -7,8 +7,10 @@
         <%= @project.description %>
         <%= @project.details %>
         <%= @project.location %>
-        <div>
-          <p>Start date: </p><%= @project.start_date %>
+        <div class="dates">
+          <h4>Start date: </h4><%= @project.start_date %>
+        </div>
+        <div class="dates">
           <p>End date: </p> <%= @project.end_date %>
         </div>
         <h3>About <%= @project.organization.name %></h3>

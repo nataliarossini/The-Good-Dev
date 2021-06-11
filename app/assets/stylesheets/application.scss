@@ -17,6 +17,10 @@ a:hover {
   text-decoration: none;
 }
 
+p{
+  font-weight:300;
+}
+
 @media (min-width: 100px) and (max-width: 575px) {
   .container-cards {
     grid-template-columns: 1fr;
