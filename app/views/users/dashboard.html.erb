@@ -1,6 +1,6 @@
 <%# link_to 'My Profile', user_path(current_user)  %>
 <div class="container-main">
-  <div class="holder">
+  <div class="hold">
     <div class="card-dashboard">
       <% if @user.photo.attached? %>
         <%= cl_image_path @user.photo.key %>
