@@ -24,12 +24,16 @@ class UsersController < ApplicationController
 
   def dashboard
     @user = current_user
-    @applications = @user.applications
-    @projects = @user.projects
+    @all_projects = Project.all
     @my_skill = MySkill.new
     if @user.organization?
-      @organization = current_user.organization
+      @organization = @user.organization
+      @applications = []
       @projects = @organization.projects
+      @projects.each { |project| @applications << project.applications }
+    else
+      @projects = @user.projects
+      @applications = @user.applications
     end
   end
 
