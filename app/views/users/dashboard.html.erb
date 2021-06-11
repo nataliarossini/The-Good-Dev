@@ -1,7 +1,52 @@
-<%= link_to 'My Profile', user_path(current_user)  %>
-<div class="container">
-  <h1>Your Dashboard</h1>
-  <% if @user.volunteer? %>
+<%# link_to 'My Profile', user_path(current_user)  %>
+<div class="container-main">
+  <div class="holder">
+    <div class="card-dashboard">
+      <% if @user.photo.attached? %>
+        <%= cl_image_path @user.photo.key %>
+      <% else %>
+        <%= image_tag "default-avt.png" %>
+      <% end %>
+      <h4> <%= @user.organization? ?  @user.organization.name : "#{@user.first_name.capitalize} #{@user.last_name.capitalize}" %> </h4>
+      <% if @user.organization? %>
+        <%= link_to 'Create a Project', new_project_path %>
+      <% else %>
+        <%= link_to user_my_skills_path(@user) do %>
+          <div class="capsule"><p>Add Skills to Your Profile<p> <i class="fas fa-plus" ></i> </div>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="applications-projects">
+      <div class="applications">
+        <h3>Applications</h3>
+        <% @applications.each do |application| %>
+          <h4>Open</h4>
+          <P><%= "#{application.created_at.strftime("%m/%d/%Y")} - #{application.project.title}" if @applications.select { |e| e.open? }.first %></p>
+          <p><em><%= "Your open applications will be displayed here" unless @applications.select { |e| e.open? }.first %></em></p>
+          <h4>Approved</h4>
+          <P><%= "#{application.created_at.strftime("%m/%d/%Y")} - #{application.project.title}" if @applications.select { |e| e.accepted? }.first %></p>
+          <p><em><%= "Approved applications will be displayed here" unless @applications.select { |e| e.accepted? }.first %></em></p>
+          <h4>Closed</h4>
+          <P><%= "#{application.created_at.strftime("%m/%d/%Y")} - #{application.project.title}" if @applications.select { |e| e.declined? }.first %></p>
+          <p><em><%= "Closed applications will be displayed here" unless @applications.select { |e| e.declined? }.first %></em></p>
+        <% end %>
+      </div>
+      <div class="projects">
+        <h3>Projects</h3>
+        <% @projects.each do |project| %>
+          <div class="dashboard-card-project">
+            <%= project.photos.attached? ? (cl_image_tag project.photos.first.key) : (image_tag "project_default_background.jpg") %>
+            <div class="project-info">
+              <h4><%= project.title %> </h4>
+              <p><%= project.description %><p>
+              <%= link_to "See the Project", project_path(project)  %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <!--<% if @user.volunteer? %>
   <div class="row">
     <div class="col-12 col-md-6 offset-lg-3">
       <div class="bg-white rounded p-3 shadow">
@@ -11,19 +56,45 @@
         <% end %>
       </div>
     </div>
-
+  
     <div>
-        <% @user.my_skills.each do |my_skill| %>
-          <%= my_skill.skill.name %>
-        <% end %>
-    </div>
-    <% else %>
-      <% @projects.each do |project| %>
-        <span><%= link_to "#{project.title}", project_path(project)  %></span>
+      <% @user.my_skills.each do |my_skill| %>
+        <%= my_skill.skill.name %>
       <% end %>
-      <div>
-        <%= link_to 'Create a Project', new_project_path %>
-      </div>
+    </div>
+  <% else %>
+    <% @projects.each do |project| %>
+      <span><%= link_to "#{project.title}", project_path(project)  %></span>
     <% end %>
+    <div>
+      <%= link_to 'Create a Project', new_project_path %>
+    </div>
+  <% end %>
+  </div> -->
+
+  <div class="container-sidebar">
+    <div class="container-news">
+      <h4>The Good Dev News</h4>
+    </div>
+    <div class="container-projects">
+      <h4>Latest Projects</h4>
+      <% @all_projects.reverse[0..2].each do |project| %>
+        <div class="card-project">
+          <div class="review-avatar">
+          <%# reviewer = User.find(review.author_id) %>
+          <% if @user.photo.attached? %>
+            <%= cl_image_path @user.photo.key %>
+          <% else %>
+            <%= image_tag "default-avt.png" %>
+          <% end %>
+            <p> <%= @user.organization? ?  @user.organization.name : "#{@user.first_name.capitalize} #{@user.last_name.capitalize}" %> </p>
+            <p> <%# reviewer.organization? ?  "Host" : "Volunteer" %> </p>
+          </div>
+          <div class="review-content">
+            <p><em>"<%= project.description %>"</em></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

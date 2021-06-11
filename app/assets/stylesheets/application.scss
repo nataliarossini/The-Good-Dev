@@ -11,42 +11,55 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "pages/new";
+@import "pages/dashboard";
 
 
 a:hover {
   text-decoration: none;
 }
 
-p{
-  font-weight:300;
-}
-
-@media (min-width: 100px) and (max-width: 575px) {
-  .container-cards {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (min-width: 576px) {
-  .container-cards {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (min-width: 768px) {
-  .container-cards {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media (min-width: 992px) {
+@media (max-width: 10000px) {
   .container-cards {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
-@media (min-width: 1400px) {
+@media (max-width: 1400px) {
   .container-cards {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 1200px) {
+  .container-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 992px) {
+  .container-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .container-cards {
+    grid-template-columns: 1fr;
+  }
+  .container-sidebar {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .container-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 100px) and (max-width: 575px) {
+  .container-cards {
+    grid-template-columns: 1fr;
   }
 }
