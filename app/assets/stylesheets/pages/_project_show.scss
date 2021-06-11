@@ -6,7 +6,9 @@
 
 .proj-photo img{
   width: 100%;
+  height: 300px;
   border-radius: 3px 3px 0px 0px;
+  object-fit: cover;
 }
 
 .img-btn{
@@ -41,6 +43,8 @@
 .pict-org img{
  border-radius: 50%;
  height: 80px;
+ width: 80px;
+ object-fit: cover;
 }
 
 .container {
