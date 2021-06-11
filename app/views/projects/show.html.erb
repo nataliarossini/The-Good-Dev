@@ -1,22 +1,44 @@
-<%= @project.title %>
-<%= @project.description %>
-<%= @project.details %>
-<%= @project.location %>
-<%= @project.start_date %>
-<%= @project.end_date %>
+<div class="container">
+  <div class="row">
+    <div class="col-6 mt-5">
+      <div class="proj-desc mb-5 mr-3 pl-4 pr-4 pb-4">
+        <h2><%= @project.title %></h2>
+        <h3>How you can help</h3>
+        <%= @project.description %>
+        <%= @project.details %>
+        <%= @project.location %>
+        <div>
+          <p>Start date: </p><%= @project.start_date %>
+          <p>End date: </p> <%= @project.end_date %>
+        </div>
+        <h3>About <%= @project.organization.name %></h3>
+        <%= @project.organization.user.description %>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="ml-3">
+        <div class="proj-photo mt-5 mb-3">
+          <% if @project.photos.attached? %>
+            <% @project.photos.each do |photo| %>
+            <!-- style as you wish -->
+              <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+            <% end %>
+          <% end %>
+        </div>
 
-<% if @project.photos.attached? %>
-  <% @project.photos.each do |photo| %>
-  <!-- style as you wish -->
-    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-  <% end %>
-<% end %>
+        <div class="buttons">
+          <% if @project.organization.user_id == current_user.id %>
+            <div>
+              <%= link_to "Update the Project", edit_project_path(@project), class: "btn btn-light-green" %>
+              <%= link_to "Remove this Project", project_path(@project), method: :delete, class: "btn btn-coral" %>
+            </div>
+          <% else %>
+            <%= link_to "Leave a review for the Organization", new_project_review_path(@project), class: 'btn btn-light-green' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<% if @project.organization.user_id == current_user.id %>
-  <%= link_to "Update the Project", edit_project_path(@project), class: 'btn-success' %>
-  <%= link_to "Remove this Project", project_path(@project), method: :delete, class: 'btn-danger' %>
-<% else %>
-  <%= link_to "Leave a review for the Organization", new_project_review_path(@project), class: 'btn-primary' %>
-<% end %>
-
-<%= link_to "Back to Projects", projects_path, class: 'btn-primary' %>
+  <%= link_to "Back to Projects", projects_path, class: 'back-btn' %>
+</div>
