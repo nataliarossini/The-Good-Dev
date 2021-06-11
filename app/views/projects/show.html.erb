@@ -21,7 +21,7 @@
           <div class="pict-org">
             <h3>About <%= @project.organization.name %></h3>
             <% if @project.organization.user.photo.attached? %>
-              <%= cl_image_path @user.photo.key %>
+              <%= cl_image_tag @project.organization.user.photo.key %>
             <% else %>
               <%= image_tag "default-avt.png" %>
             <% end %>
