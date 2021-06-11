@@ -1,14 +1,22 @@
 <%= simple_form_for (@project) do |f| %>
-  <%= f.input :title, label: 'Project title' %>
-  <%= f.input :description, label: 'Project description' %>
-  <%= f.input :details, label: 'Project details' %>
-  <%= f.input :location, label: 'Project location' %>
-  <%= f.input :start_date, html5: true, label: 'Project start date' %>
-  <%= f.input :end_date, html5: true, label: 'Project end date' %>
-  <%= f.input :remote, 
-              :as => :radio_buttons, 
-              :collection => [['Yes', true],['No', false]], 
-              :label => "Remote" %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.button :submit, current_page?(action: 'new') ? "Create Project" : "Edit Project", class: "btn-success" %>
+  <div class="form-inputs">
+    <div class="division">
+      <%= f.input :title, label: 'Project title' %>
+      <%= f.input :location, label: 'Project location' %>
+    </div>
+    <%= f.input :description, label: 'Project description' %>
+    <%= f.input :details, label: 'Project details' %>
+    <div class="division">
+      <%= f.input :start_date, html5: true, label: 'Project start date' %>
+      <%= f.input :end_date, html5: true, label: 'Project end date' %>
+    </div>
+    <%= f.input :remote, 
+                :as => :radio_buttons, 
+                :collection => [['Yes', true],['No', false]], 
+                :label => "Remote" %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit, current_page?(action: 'new') ? "Create Project" : "Edit Project", class: "main-btn" %>
+  </div>
 <% end %>
