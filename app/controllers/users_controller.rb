@@ -34,7 +34,7 @@ class UsersController < ApplicationController
       @projects = @organization.projects
       arr = []
       @projects.each { |e| arr << e.id }
-      @applications = Application.all.select { |application| arr.includes(application.project_id) } # Be careful, if there is app, it will return empty array, not nil!!!
+      @applications = Application.all.select { |application| arr.include?(application.project_id) } # Be careful, if there is app, it will return empty array, not nil!!!
     else
       @projects = @user.projects
       @applications = @user.applications

@@ -35,7 +35,7 @@
           <div class="review-avatar">
           <% reviewer = User.find(review.author_id) %>
             <% if reviewer.photo.attached? %>
-              <%= cl_image_path reviewer.photo.key %>
+              <%= cl_image_tag reviewer.photo.key, class: 'avatar' %>
             <% else %>
               <%= image_tag "default-avt.png" %>
             <% end %>
