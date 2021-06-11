@@ -19,7 +19,7 @@
         </li>
         <li class="nav-item dropdown">
           <% if current_user.photo.attached? %>
-              <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src= <%= cl_image_path current_user.photo.key %> />
+              <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src= <%= cl_image_path current_user.photo.key, class: 'avatar' %> />
             <% else %>
               <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src= <%= image_path("default-avt.png") %> />
           <% end %>

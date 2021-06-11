@@ -11,7 +11,7 @@
   <h2>How it works</h2>
   <p>If you are a IT professional you can apply to work as a volunteer. We provide a range of intitutions willing to host you in exchange of your services. </p>
   <div class="d-flex">
-    <%= image_tag 'img1', class: 'img-home' %>
+    <%= image_tag 'img1.svg', class: 'img-home' %>
     <span>1 Join our community</span>
     <span>2 Aplly to a project</span>
     <span>3 Wait for your
@@ -25,11 +25,33 @@ application approval</span>
     <span>2 Aplly to a project</span>
     <span>3 Wait for your application approval</span>
     <span>4 Gain experience while working in meaningful projects!</span>
-    <%= image_tag 'img2', class: 'img-home' %>
+    <%= image_tag 'img2.svg', class: 'img-home' %>
   </div>
 
-  <div class="recents">
+</div>
+<div class="recent-posted">
     <h3>Recently posted</h3>
-
-  </div>
+    <div class="container-cards">
+      <% @projects.reverse.first(3).each do |project| %>
+        <%= link_to project_path(project) do %>
+          <% if project.photos.attached? %>
+            <% photo_source = cl_image_path project.photos.first.key %>
+          <% else %>
+            <% photo_source = image_path("project_default_background.jpg") %>
+          <% end %>
+          <div class="card-project" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= photo_source %>);">
+            <div class="cell">
+              <p><i class="fas fa-map-pin"></i> <%= project.location %> </p>
+            </div>
+            <div class="cell">
+              <h3> <%= project.title %> </h3>
+              <p> <%= project.description %> <p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+      <div>
+      <%= link_to 'See more', projects_path %>
+      </div>
+    </div>
 </div>

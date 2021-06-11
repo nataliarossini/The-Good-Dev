@@ -1,36 +1,82 @@
 // Import page-specific CSS files here.
 @import "home";
 @import "project_show";
+@import "profile";
 
-.container-cards {
-  width: 90vw;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 16px;
+.container-main {
+  display: flex;
 
-  .card-project {
-    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), asset-url('project_default_background.jpg');
-    background-color: black;
-    background-size: cover;
-    background-position: center;
-    color: white;
-    height: 250px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
-    opacity: 0.9;
+  .holder {
+    margin: 32px;
 
-    &:hover {
-      opacity: 1;
+    h1 {
+      color: #AAD8D3;
+    }
+  }
+  .container-sidebar {
+    flex-shrink: 0;
+    width: 360px;
+    height: 92vh;
+    position: sticky;
+    top: 0;
+    background-color: #AAD8D3;
+
+    
+    h4 {
+      font-size: 2vh;
+      margin: 0px;
+      padding: 2vh 0vh 1vh 2vh;
+      border-bottom: 1px solid #E5E5E5;
     }
 
-    .cell {
-      margin: 16px;
+    .container-news {
+      height: 43vh;
+      margin: 2vh;
+      background-color: white;
+    }
+    .container-reviews {
+      height: 43vh;
+      margin: 2vh;
+      background-color: white;
 
-      p {
-        margin: 0;
+      .card-review {
+        height: 12.5vh;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #E5E5E5;
+
+        .review-avatar {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          height: 100%;
+          margin: 8px 0px;
+          flex: 0 0 33%;
+
+          img {
+            max-height: 50%;
+            margin-bottom: 4px;
+          }
+
+          p {
+            margin: 0px;
+            font-size: 12px;
+          }
+        }
+        .review-content {
+          word-break: break-all;
+          padding-right: 16px;
+          flex: 0 0 66%;
+
+          p {
+            
+            margin: 0px;
+            font-size: 14px;
+          }
+        }
       }
     }
   }
