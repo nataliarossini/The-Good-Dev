@@ -64,18 +64,21 @@
     color: #3F3D56;
     font-weight: 300;
   }
+  img {
+    height: 32px;
+  }
 }
 .profile-container {
   width: 600px;
 }
-.card-container {
-  margin-top: 8px;
-  display: flex;
-  // flex-wrap: wrap;
-  flex-flow: row wrap;
-  padding: 0;
+// .card-container {
+//   margin-top: 8px;
+//   display: flex;
+//   // flex-wrap: wrap;
+//   flex-flow: row wrap;
+//   padding: 0;
 
-}
+// }
 
 #accept-volunteers {
   color: #00ADB5;

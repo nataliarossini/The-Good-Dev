@@ -5,9 +5,12 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @reviews = Review.all
     if @user.organization?
       @organization = @user.organization
       @projects = @organization.projects
+    else
+      @projects = @user.projects
     end
   end
 
