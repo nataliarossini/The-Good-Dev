@@ -1,37 +1,16 @@
 .proj-desc{
   background-color:#AAD8D3;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 3px;
 }
 
 .proj-photo img{
   width: 100%;
+  border-radius: 3px 3px 0px 0px;
 }
 
-.btn-light-green {
-  color: white;
-  background-color: #5BCF9C;
-  padding: 8px 24px;
-  border-radius: 50px;
-  font-weight: bold;
-  transition: opacity 0.3s ease;
-}
-
-.btn-light-green:hover {
-  color: white;
-  opacity: 0.8;
-}
-
-.btn-coral {
-  color: white;
-  background-color: #ff9b85;
-  padding: 8px 24px;
-  border-radius: 50px;
-  font-weight: bold;
-  transition: opacity 0.3s ease;
-}
-
-.btn-coral:hover {
-  color: white;
-  opacity: 0.8;
+.img-btn{
+  border-radius: 3px;
 }
 
 .buttons{
@@ -45,8 +24,27 @@
 }
 
 .dates{
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+  display:flex;
+  justify-content: space-between;
+}
 
+.img-btn{
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.pict-org{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pict-org img{
+ border-radius: 50%;
+ height: 80px;
+}
+
+p{
+  font-size: 16px;
+  color: #3F3D56;
+  font-weight: 300;
 }
