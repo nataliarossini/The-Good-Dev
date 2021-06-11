@@ -73,16 +73,41 @@
     }
   }
 }
+.card-container {
+  margin-top: 8px;
+  display: flex;
+  // flex-wrap: wrap;
+  flex-flow: row wrap;
+  padding: 0;
+
+}
 
 .profile-review-card {
   display: flex;
   align-items: center;
+  background-color: white;
+  margin-top: 12px;
+  padding: 16px;
   .review-info {
-    flex-direction: column;
+    display: grid;
+    text-align: -webkit-center;
   }
   .rating-stars {
     display: inline-block;
     font-size: 12px;
+    i {
+      color: #FAD67B;
+    }
   }
-  // background-color: white;
+    a {
+      display: flex;
+      align-self: flex-end;
+      color: #00ADB5;
+    }
+    .rev-content {
+      display: contents;
+    }
+}
+hr {
+  margin-top: 0;
 }

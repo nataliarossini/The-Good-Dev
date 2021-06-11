@@ -14,9 +14,11 @@
       padding: 0px 16px 0px 0px;
       
       img {
-        height: 60%;
+        height: 120px;
+        width: 120px;
         margin-top: 32px;
         border-radius: 50%;
+        object-fit: cover;
       }
 
       h4 {
@@ -154,9 +156,11 @@
           flex: 0 0 33%;
   
           img {
-            max-height: 50%;
+            height: 56px;
+            width: 56px;
             margin-bottom: 4px;
             border-radius: 50%;
+            object-fit: cover;
           }
   
           p {

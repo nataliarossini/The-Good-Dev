@@ -3,7 +3,7 @@
   <div class="hold">
     <div class="card-dashboard">
       <% if @user.photo.attached? %>
-        <%= cl_image_path @user.photo.key %>
+        <%= cl_image_tag @user.photo.key %>
       <% else %>
         <%= image_tag "default-avt.png" %>
       <% end %>
@@ -83,7 +83,7 @@
           <div class="review-avatar">
           <%# reviewer = User.find(review.author_id) %>
           <% if @user.photo.attached? %>
-            <%= cl_image_path @user.photo.key %>
+            <%= cl_image_tag @user.photo.key %>
           <% else %>
             <%= image_tag "default-avt.png" %>
           <% end %>
