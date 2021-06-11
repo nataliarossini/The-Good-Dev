@@ -5,6 +5,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    if @user.organization?
+      @organization = @user.organization
+      @projects = @organization.projects
+    end
   end
 
   # def edit

@@ -29,7 +29,8 @@ application approval</span>
   </div>
 
 </div>
-    <h3 style="padding:24px; margin-left: 48px;">Recently posted</h3>
+<div class="recent-posted">
+    <h3>Recently posted</h3>
     <div class="container-cards">
       <% @projects.reverse.first(3).each do |project| %>
         <%= link_to project_path(project) do %>
@@ -49,5 +50,8 @@ application approval</span>
           </div>
         <% end %>
       <% end %>
+      <div>
       <%= link_to 'See more', projects_path %>
+      </div>
     </div>
+</div>
