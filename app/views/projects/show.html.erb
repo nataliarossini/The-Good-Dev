@@ -33,12 +33,7 @@
     <div class="col-6">
       <div class="img-btn ml-3">
         <div class="proj-photo mt-5 mb-3">
-          <% if @project.photos.attached? %>
-            <% @project.photos.each do |photo| %>
-            <!-- style as you wish -->
-              <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-            <% end %>
-          <% end %>
+            <%= @project.photos.attached? ? (cl_image_tag @project.photos.first.key) : (image_tag "default-project-photo-unsplash.jpg") %>
         </div>
 
         <div class="buttons pb-3 pr-2">
@@ -48,7 +43,7 @@
               <%= link_to "Delete this Project", project_path(@project), method: :delete, class: "btn btn-coral" %>
             </div>
           <% else %>
-            <%= link_to "Leave a review for the Organization", new_project_review_path(@project), class: 'btn btn-light-green' %>
+            <%= link_to "Leave a review", new_project_review_path(@project), class: 'btn btn-light-green' %>
           <% end %>
         </div>
       </div>
