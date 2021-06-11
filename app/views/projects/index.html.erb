@@ -2,7 +2,7 @@
   <div class="holder">
     <h1> Projcts Available </h1>
     <div class="filter-bar">
-      <P>!!!Locate our filter here!!! </p>
+      <!-- !!!Locate our filter here!!!  -->
     </div>
     <div class="container-cards">
       <% @projects.each do |project| %>
@@ -26,27 +26,27 @@
   </div>
   <div class="container-sidebar">
     <div class="container-news">
+      <h4>The Good Dev News</h4>
     </div>
     <div class="container-reviews">
+      <h4>Members Feedback</h4>
       <% @reviews.reverse[0..2].each do |review| %>
         <div class="card-review">
           <div class="review-avatar">
           <% reviewer = User.find(review.author_id) %>
             <% if reviewer.photo.attached? %>
               <%= cl_image_path reviewer.photo.key %>
-              <p> <%= reviewer.organization? ?  reviewer.organization.name : "#{reviewer.first_name.capitalize}" %> </p>
             <% else %>
               <%= image_tag "default-avt.png" %>
-              <p> <%= reviewer.organization? ?  reviewer.organization.name : "#{reviewer.first_name.capitalize}" %> </p>
-              <p> <%= reviewer.organization? ?  "Host" : "Volunteer" %> </p>
             <% end %>
+              <p> <%= reviewer.organization? ?  reviewer.organization.name : "#{reviewer.first_name.capitalize} #{reviewer.last_name.capitalize}" %> </p>
+              <p> <%# reviewer.organization? ?  "Host" : "Volunteer" %> </p>
           </div>
           <div class="review-content">
-            <p><em>"<%= review.content %>"</em>  </p>
+            <p><em>"<%= review.content %>"</em></p>
           </div>
         </div>
       <% end %>
     </div>
   </div>
 </div>
-<%# url('<%= project.photos.first ? cl_image_path project.photos.first.key : %>
