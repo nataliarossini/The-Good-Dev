@@ -31,9 +31,10 @@ class UsersController < ApplicationController
     @my_skill = MySkill.new
     if @user.organization?
       @organization = @user.organization
-      @applications = []
       @projects = @organization.projects
-      @projects.each { |project| @applications << project.applications }
+      arr = []
+      @projects.each { |e| arr << e.id }
+      @applications = Application.all.select { |application| arr.includes(application.project_id) } # Be careful, if there is app, it will return empty array, not nil!!!
     else
       @projects = @user.projects
       @applications = @user.applications

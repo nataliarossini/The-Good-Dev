@@ -31,9 +31,26 @@
   
     .form-actions {
       text-align: center;
+
       .main-btn {
         background-color: #5BCF9C;
         margin-bottom: 20px;
+    
+      }
+    }
+    .button-cancel {
+      background-color: #e63946;
+      color: #001219;
+      font-style: normal;
+      margin-bottom: 20px;
+      font-weight: 400;
+      font-size: 1rem;
+      opacity: 0.9;
+
+      &:hover {
+        text-decoration: none;
+        color: #001219;
+        opacity: 1;
       }
     }
   }
