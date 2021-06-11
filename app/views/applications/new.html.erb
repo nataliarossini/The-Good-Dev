@@ -10,8 +10,9 @@
       </div>
       <div class="form-actions">
         <%= f.button :submit, "Submit", :class => "main-btn" %>
+         <%= link_to "Cancel", project_path(@project), class: "main-btn button-cancel" %>
       </div>
     <% end %>
-    <%= link_to "Cancel", project_path(@project), class: "main-btn button-cancel" %>
+    <%# link_to "Cancel", project_path(@project), class: "main-btn button-cancel" %>
   </div>
 </div>
