@@ -1,3 +1,10 @@
+// const initFixedNavbar = () => {
+//   const navbar = document.getElementById('navbar');
+//   if (window.location.root_path) {
+//     navbar.classList.add("fixed-top");
+//   }
+// }
+
 const initUpdateNavbarOnScroll = () => {
   const navbar = document.querySelector('.navbar-lewagon');
   if (navbar) {
