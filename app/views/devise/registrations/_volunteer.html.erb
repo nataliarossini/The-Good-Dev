@@ -31,10 +31,10 @@
                       required: true,
                       input_html: { autocomplete: "new-password" } %>
         </div>
-        <%= f.input :address,
+        <%= f.input :address, as: :search,
                     required: true,
                     autofocus: true,
-                    input_html: { autocomplete: "Address" }%>
+                    input_html: { :id => "address-input" }%>
         <%= f.input :description,
                     label: "About you",
                     placeholder: "Tell us about yoruself",
