@@ -14,7 +14,9 @@
 @import "pages/new";
 @import "pages/dashboard";
 
-
+body {
+  padding-top: 8vh;
+}
 a:hover {
   text-decoration: none;
 }
