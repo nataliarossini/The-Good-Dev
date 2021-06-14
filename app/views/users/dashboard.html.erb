@@ -21,7 +21,7 @@
         <h3>Applications</h3>
         <h4>Open</h4>
         <% @applications.select { |e| e.open? }.each do |application| %>
-          <p><%= "#{application.created_at.strftime("%m/%d/%Y")} - #{application.project.title}" %> </p>
+          <p><%= "#{application.created_at.strftime("%m/%d/%Y")} - #{application.project.title}" %> <%= link_to "Respond", application_assess_path(application), class: "btn-primary" if current_user.organization == application.project.organization %> </p>
         <% end %>
         <p><em><%= "Your open applications will be displayed here" unless @applications.select { |e| e.open? }.first %></em></p>
         <h4>Approved</h4>

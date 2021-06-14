@@ -1,0 +1,19 @@
+<h2><%= @project.title %></h2>
+<h3><%= @project.description %></h3>
+<p><%= @project.details %></p>
+<p>----------------------------------------</p>
+
+<p><%= "#{@user.first_name} - #{@user.last_name}" %></p>
+<p><%= @user.linkedin if @user.linkedin %></p>
+<p><%= @application.motivation_letter %></p>
+<p><%= cl_image_tag @application.resume.key if  @application.resume %></p>
+
+<%= simple_form_for (@application), :url => application_respond_path, :method => :patch do |f| %>
+  <%= hidden_field_tag "application[status]", "accepted" %>
+  <%= f.submit "Accept", class: "btn btn-success" %>
+<% end %>
+
+<%= simple_form_for (@application), :url => application_respond_path, :method => :patch do |f| %>
+  <%= hidden_field_tag("application[status]", "declined") %>
+  <%= f.submit "Decline", class: "btn btn-danger" %>
+<% end %>
