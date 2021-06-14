@@ -20,11 +20,14 @@ ActiveStorage.start()
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 import { initChatroomCable } from '../channels/chatroom_channel';
 import { initOpenStatus } from '../components/status';
+import { openPopup, prevent } from '../pages/dashboard.js'
 import { initMapbox } from '../plugins/init_mapbox';
+
 
 document.addEventListener('turbolinks:load', () => {
   // Call your JS functions here
   initUpdateNavbarOnScroll();
+  openPopup();
   initMapbox();
 });
 // External imports
@@ -35,3 +38,4 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   initChatroomCable();
 });
+
