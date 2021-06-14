@@ -8,6 +8,13 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     @markers = [{ lat: @project.latitude, lng: @project.longitude }]
+    # @contact = Chatroom.create(name: 'Contact')
+    # raise
+    # if @contact.save
+    #   redirect_to chatroom_path
+    # else
+    #   render :show
+    # end
   end
 
   def new
