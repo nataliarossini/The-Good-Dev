@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get '/dashboard', to: 'users#dashboard', as: :dashboard
   resources :projects do
+    resources :chatrooms, only: :create
     resources :applications, only: [:new, :create]
     resources :reviews, only: [:new, :create]
   end
@@ -19,7 +20,7 @@ Rails.application.routes.draw do
     resources :my_skills, only:[:create]
   end
   resources :organizations, only: [:new, :create]
-  resources :chatrooms, only: :show do
+  resources :chatrooms, only: [:show] do
     resources :messages, only: :create
   end
 end

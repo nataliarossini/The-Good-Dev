@@ -7,6 +7,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    @chatroom = Chatroom.where(user: current_user, recipient: @project.organization.user).or(Chatroom.where(user: @project.organization.user, recipient: current_user)).first
     # @markers = [{ lat: @project.latitude, lng: @project.longitude }]
     # @contact = Chatroom.create(name: 'Contact')
     # raise

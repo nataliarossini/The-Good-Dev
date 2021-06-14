@@ -27,7 +27,14 @@
             <% end %>
           </div>
           <p><%= @project.organization.user.description %></p>
-          <%= link_to 'Contact', chatroom_path  %>
+          <% if current_user && @project.organization.user != current_user %>
+            <% if @chatroom %>
+              <%= link_to "Contact", chatroom_path(@chatroom)  %>
+            <% else %>
+              <%= link_to 'Contact', project_chatrooms_path(@project), method: :post  %>
+            <% end %>
+
+          <% end %>
         </div>
       </div>
     </div>

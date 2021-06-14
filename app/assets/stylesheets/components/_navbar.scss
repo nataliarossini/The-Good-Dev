@@ -15,3 +15,16 @@
 .navbar-lewagon .navbar-brand img {
   width: 156px;
 }
+.notification-msg {
+  text-align: center;
+  background-color: rgba(247, 91, 82, 0.9);
+  color: white;
+  margin: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  font-size: 12px;
+}
+.messages {
+  display: inline-flex;
+}

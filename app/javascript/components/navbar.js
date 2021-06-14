@@ -1,9 +1,10 @@
-// const initFixedNavbar = () => {
-//   const navbar = document.getElementById('navbar');
-//   if (window.location.root_path) {
-//     navbar.classList.add("fixed-top");
-//   }
-// }
+const initFixedNavbar = () => {
+  const navbar = document.querySelector('.navbar');
+  const banner = document.querySelector('.banner');
+  if (banner) {
+    navbar.classList.add("fixed-top");
+  }
+}
 
 const initUpdateNavbarOnScroll = () => {
   const navbar = document.querySelector('.navbar-lewagon');
@@ -18,4 +19,4 @@ const initUpdateNavbarOnScroll = () => {
   }
 }
 
-export { initUpdateNavbarOnScroll };
+export { initUpdateNavbarOnScroll, initFixedNavbar };

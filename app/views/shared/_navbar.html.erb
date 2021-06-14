@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to "/", class: "navbar-brand" do %>
     <%= image_tag "logo1.svg" %>
     <% end %>
@@ -14,9 +14,35 @@
         <li class="nav-item active">
           <%= link_to "Home", "#", class: "nav-link" %>
         </li>
-        <li class="nav-item">
-          <%= link_to "Messages", "#", class: "nav-link" %>
+        <li class="nav-item dropdown">
+          <div class="dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%#= link_to "Messages", chatrooms_path, class: "nav-link" %>
+            <div class="messages">
+              <%= link_to "Messages", "#", class: "nav-link" %>
+                <% if @unread_messages == 0 %>
+
+                <% else %>
+              <div class="notification-msg" >
+                  <%= @unread_messages %>
+                  <%#= @chatroom.recipient %>
+              </div>
+                <% end %>
+                <%#= @unread_messages unless @unread_messages == 0 %>
+            </div>
+          </div>
+          <div>
+            <% @chatrooms.each do |chatroom|  %>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <% if current_user.volunteer? %>
+                  <%= link_to "#{chatroom.recipient.organization.name}", chatroom_path(chatroom), class: "dropdown-item"  %>
+                <% else %>
+                  <%= link_to "#{chatroom.user.first_name}", chatroom_path(chatroom), class: "dropdown-item"  %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
         </li>
+
         <li class="nav-item dropdown">
           <% if current_user.photo.attached? %>
               <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src= <%= cl_image_path current_user.photo.key, class: 'avatar' %> />
