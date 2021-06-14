@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
-    # @markers = [{ lat: @project.latitude, lng: @project.longitude }]
+    @markers = [{ lat: @project.latitude, lng: @project.longitude }]
     # @contact = Chatroom.create(name: 'Contact')
     # raise
     # if @contact.save
@@ -36,7 +36,6 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    raise
     @project = Project.find(params[:id])
     @project.update(project_params)
     redirect_to @project

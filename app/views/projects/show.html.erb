@@ -1,59 +1,66 @@
 <div class="container">
-  <div class="row">
-    <div class="col-6 mt-5">
-      <div class="proj-desc mb-5 mr-3 pl-4 pr-4 pb-4">
-        <h2><%= @project.title %></h2>
-        <h3>How you can help</h3>
-        <p><%= @project.details %></p>
-        <div class="mt-4">
-        <h3>Location</h3>
-        </div>
-        <p><%= @project.location %></p>
-        <div class="dates mt-4">
-          <div>
-            <h4>Start date</h4> <p><%= @project.start_date %></p>
+   <div class="mb-3">
+    <div class="row">
+      <div class="col-6 mt-5">
+        <div class="proj-desc mb-5 mr-3 pl-4 pr-4 pb-4">
+          <h2><%= @project.title %></h2>
+          <h3>How you can help</h3>
+          <p><%= @project.details %></p>
+          <div class="mt-4">
+          <h3>Location</h3>
           </div>
-          <div>
-            <h4>End date</h4> <p><%= @project.end_date %></p>
+          <p><%= @project.location %></p>
+          <div class="dates mt-4">
+            <div>
+              <h4>Start date</h4> <p><%= @project.start_date %></p>
+            </div>
+            <div>
+              <h4>End date</h4> <p><%= @project.end_date %></p>
+            </div>
           </div>
-        </div>
-        <div class="proj-org mt-4">
-          <div class="pict-org">
-            <h3>About <%= link_to "#{@project.organization.name}", user_path(@project.organization.user) %></h3>
-            <% if @project.organization.user.photo.attached? %>
-              <%= cl_image_tag @project.organization.user.photo.key %>
-            <% else %>
-              <%= image_tag "default-avt.png" %>
-            <% end %>
+          <div class="proj-org mt-4">
+            <div class="pict-org">
+              <h3>About <%= link_to "#{@project.organization.name}", user_path(@project.organization.user) %></h3>
+              <% if @project.organization.user.photo.attached? %>
+                <%= cl_image_tag @project.organization.user.photo.key %>
+              <% else %>
+                <%= image_tag "default-avt.png" %>
+              <% end %>
+            </div>
+            <p><%= @project.organization.user.description %></p>
           </div>
           <p><%= @project.organization.user.description %></p>
           <%= link_to 'Contact', chatroom_path  %>
         </div>
       </div>
-    </div>
-    <div class="col-6">
-      <div class="img-btn ml-3">
-        <div class="proj-photo mt-5 mb-3">
-            <%= @project.photos.attached? ? (cl_image_tag @project.photos.first.key) : (image_tag "default-project-photo-unsplash.jpg") %>
-        </div>
+      <div class="col-6">
+        <div class="img-btn ml-3">
+          <div class="proj-photo mt-5 mb-3">
+              <%= @project.photos.attached? ? (cl_image_tag @project.photos.first.key) : (image_tag "default-project-photo-unsplash.jpg") %>
+          </div>
 
-        <div class="buttons pb-3 pr-2">
-          <% if @project.organization.user_id == current_user.id %>
-            <div>
-              <%= link_to "Update the Project", edit_project_path(@project), class: "btn btn-light-green" %>
-              <%= link_to "Delete this Project", project_path(@project), method: :delete, class: "btn btn-coral" %>
-            </div>
-          <% else %>
-            <% if current_user.applications.select { |a| a.project_id == @project.id }.length == 0 %>
-              <%= link_to "Apply", new_project_application_path(@project), class: 'btn btn-light-green' %>
-            <% else %>
-              <%= link_to "Leave a review", new_project_review_path(@project), class: 'btn btn-light-green' %>
+          <div class="buttons mb-4 pb-3 pr-2">
+            <% if @project.organization.user_id == current_user&.id %>
+              <div>
+                <%= link_to "Update the Project", edit_project_path(@project), class: "btn btn-light-green" %>
+                <%= link_to "Delete this Project", project_path(@project), method: :delete, class: "btn btn-coral" %>
+              </div>
+            <% elsif current_user%>
+              <% if current_user.applications.select { |a| a.project_id == @project.id }.length == 0 %>
+                <%= link_to "Apply", new_project_application_path(@project), class: 'btn btn-light-green' %>
+              <% else %>
+                <%= link_to "Leave a review", new_project_review_path(@project), class: 'btn btn-light-green' %>
+              <% end %>
             <% end %>
-          <% end %>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
 
-  <%= link_to "Back to Projects", projects_path, class: 'back-btn' %>
+        <div id="map" class="ml-3"
+       style="width: 100%; height: 450px;"
+       data-markers="<%= @markers.to_json %>"
+       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+     </div>
+    </div>
+    <%= link_to "Back to Projects", projects_path, class: 'back-btn' %>
+  </div>
 </div>
