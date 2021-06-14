@@ -14,7 +14,7 @@
         <%= link_to project_path(project), :class => "card-project",
                                            :style => "background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(#{photo_source});" do %>
           <div class="cell">
-            <h3> <i class="fas fa-map-pin"></i> <%= project.location %> </h3>
+            <p> <i class="fas fa-map-pin"></i> <%= project.location %> </p>
           </div>
           <div class="cell">
             <h3> <%= project.title %> </h3>
@@ -27,6 +27,7 @@
   <div class="container-sidebar">
     <div class="container-news">
       <h4>The Good Dev News</h4>
+      <%= render 'news' %>
     </div>
     <div class="container-reviews">
       <h4>Members Feedback</h4>
