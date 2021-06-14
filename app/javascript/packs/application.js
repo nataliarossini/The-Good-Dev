@@ -19,10 +19,12 @@ ActiveStorage.start()
 // ----------------------------------------------------
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 import { initOpenStatus } from '../components/status';
+import { openPopup, prevent } from '../pages/dashboard.js'
 
 document.addEventListener('turbolinks:load', () => {
   // Call your JS functions here
   initUpdateNavbarOnScroll();
+  openPopup();
 });
 // External imports
 import "bootstrap";
@@ -34,3 +36,4 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
 });
+
