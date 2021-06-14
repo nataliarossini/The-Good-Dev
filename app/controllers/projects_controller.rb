@@ -25,6 +25,8 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     @project.organization = current_user.organization
     if @project.save
+      MyBadge.create(user_id: current_user.id, badge_id: Badge.find_by(name: "Experienced Host").id).save if current_user.organization.projects.count == 10 # This line is for job-doer badge (see seed file)
+
       redirect_to @project
     else
       render :new

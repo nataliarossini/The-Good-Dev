@@ -5,6 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+MyBadge.destroy_all
+Badge.destroy_all
+MySkill.destroy_all
+Skill.destroy_all
 Application.destroy_all
 Review.destroy_all
 Project.destroy_all
@@ -71,6 +75,12 @@ Project.create(
 
   )
 
-skills_list = ['Team work', 'Teacher', 'Ruby', 'Rails', 'Python', 'CSS', 'Javascript', 'Front-end', 'Back-end']
+skills_list = ['Teamwork', 'Teaching', 'Ruby', 'Rails', 'Python', 'HTML', 'CSS', 'JavaScript', 'Front-end', 'Back-end']
 
 skills_list.each { |e| Skill.create(name: e) }
+
+badges = [ {name: "Reviewer", about: "review", condition: "when number of review made by user reaches to 10" },
+           {name: "Experienced Host", about: "project", condition: "if number of approved applications >=10" },
+           {name: "Top Rated", about: "review", condition: "if number of reviews made for user is >= 3 & average rating >=4.5" }]
+
+badges.each { |b| Badge.create(name: b[:name], about: b[:about], condition: b[:condition]) }
