@@ -18,6 +18,7 @@ ActiveStorage.start()
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
 import { initUpdateNavbarOnScroll } from '../components/navbar';
+import { initOpenStatus } from '../components/status';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your JS functions here

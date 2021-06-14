@@ -20,18 +20,24 @@
       <div class="applications">
         <h3>Applications</h3>
         <h4>Open</h4>
-        <% @applications.select { |e| e.open? }.each do |application| %>
-          <p><%= "#{application.created_at.strftime("%m/%d/%Y")} - #{application.project.title}" %> </p>
-        <% end %>
+          <% @applications.select { |e| e.open? }.each do |application| %>
+        <div>
+            <button id="show-details"><%= "#{application.created_at.strftime("%m/%d/%Y")} - #{application.project.title}" %> </button>
+        </div>
+          <% end %>
         <p><em><%= "Your open applications will be displayed here" unless @applications.select { |e| e.open? }.first %></em></p>
         <h4>Approved</h4>
         <% @applications.select { |e| e.accepted? }.each do |application| %>
+        <div>
           <p><%= "#{application.created_at.strftime("%m/%d/%Y")} - #{application.project.title}" %> </p>
+        </div>
         <% end %>
         <p><em><%= "Approved applications will be displayed here" unless @applications.select { |e| e.accepted? }.first %></em></p>
         <h4>Closed</h4>
         <% @applications.select { |e| e.declined? }.each do |application| %>
+        <div>
           <p><%= "#{application.created_at.strftime("%m/%d/%Y")} - #{application.project.title}" %> </p>
+        </div>
         <% end %>
         <p><em><%= "Closed applications will be displayed here" unless @applications.select { |e| e.declined? }.first %></em></p>
       </div>

@@ -34,6 +34,38 @@
       margin: 2vh;
       background-color: white;
       box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      .card-news {
+        height: 12.5vh;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #E5E5E5;
+        overflow:hidden;
+        overflow-wrap: break-word;
+          img {
+            height: 12.5vh;
+            width:30%;
+            object-fit: cover;
+            padding: 0px;
+          }
+
+        .news-content {
+            word-break: break-all;
+            padding-right: 16px;
+            flex: 0 0 66%;
+            h4 {
+              border-bottom: none;
+              padding: 0;
+            }
+
+            p {
+              color: rgba(0, 0, 0, 0.6);
+              padding: 4px;
+              margin: 0px;
+              font-size: 14px;
+            }
+          }
+        }
     }
     .container-reviews {
       height: 43vh;
