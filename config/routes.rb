@@ -7,6 +7,12 @@ Rails.application.routes.draw do
     resources :applications, only: [:new, :create]
     resources :reviews, only: [:new, :create]
   end
+
+  resources :applications, only: [] do
+    get '/assess', to: 'applications#assess'
+    patch '/respond', to: 'applications#respond'
+  end
+
   resources :users, only: [:index, :show] do
     resources :reviews, only: [:new, :create]
     get '/my_skills', to: 'users#my_skills', as: :my_skills

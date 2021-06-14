@@ -36,6 +36,7 @@ class ProjectsController < ApplicationController
   end
 
   def update
+    raise
     @project = Project.find(params[:id])
     @project.update(project_params)
     redirect_to @project

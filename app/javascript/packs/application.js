@@ -19,6 +19,7 @@ ActiveStorage.start()
 // ----------------------------------------------------
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 import { initChatroomCable } from '../channels/chatroom_channel';
+import { initOpenStatus } from '../components/status';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your JS functions here

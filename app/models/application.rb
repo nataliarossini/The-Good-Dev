@@ -4,6 +4,7 @@ class Application < ApplicationRecord
   validates :motivation_letter, presence: true
   validates :status, presence: true
   enum status: [:open, :accepted, :declined]
+  has_one_attached :resume
 end
 
 # ajoute defaut :open a la table application pour le status
