@@ -19,4 +19,7 @@ Rails.application.routes.draw do
     resources :my_skills, only:[:create]
   end
   resources :organizations, only: [:new, :create]
+  resources :chatrooms, only: :show do
+    resources :messages, only: :create
+  end
 end
