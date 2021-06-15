@@ -58,7 +58,6 @@
         }
 
         h4 {
-          color: #3F3D56;
           margin-top: 16px;
         }
 
@@ -151,7 +150,6 @@
   
     
     h4 {
-      color: #3F3D56;
       font-size: 2vh;
       margin: 0px;
       padding: 2vh 0vh 1vh 2vh;
@@ -214,22 +212,6 @@
     }
   }
 }
-
-.saved-items {
-  h4 {
-    color: #3F3D56;
-    i{
-      font-size: 18px;
-    }
-  }
-  a {
-    color: #00ADB5;
-    transition: 0.2s;
-    font-weight: bold;
-    &:hover {
-      text-shadow: rgba(0, 0, 0, 0.24) 0px 2px 8px;
-      padding: 8px;
-    }
 
 .h5-links{
   color: #0E0000 !important;

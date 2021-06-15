@@ -51,19 +51,6 @@ class ProjectsController < ApplicationController
     redirect_to projects_path
   end
 
-  def favorite
-    @project = Project.find(params[:id])
-    current_user.favorite(@project)
-    redirect_to projects_path
-
-  end
-
-  def unfavorite
-    @project = Project.find(params[:id])
-    current_user.unfavorite(@project)
-    redirect_to projects_path
-  end
-
   private
 
   def project_params
