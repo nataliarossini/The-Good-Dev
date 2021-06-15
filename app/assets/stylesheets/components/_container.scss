@@ -1,0 +1,45 @@
+#popup {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 16px;
+  position: relative;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  .container-skills {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    padding: 16px;
+  
+    .main-btn {
+      padding: 2px 8px;
+      margin: 4px;
+    }
+  }
+
+  .close-section {
+    background-color: #393E46;
+    color: white;
+    padding: 2px 8px;
+    margin-right: 16px;
+    margin-bottom: 16px;
+    align-self: flex-end;
+    justify-self: flex-end;
+  }
+}
+
+.container-current_skills {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+
+  .main-btn {
+    padding: 2px 8px;
+    margin: 4px;
+  }
+}
+

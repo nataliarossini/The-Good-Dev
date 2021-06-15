@@ -7,13 +7,43 @@
       <% else %>
         <%= image_tag "default-avt.png" %>
       <% end %>
-      <h4> <%= @user.organization? ?  @user.organization.name : "#{@user.first_name.capitalize} #{@user.last_name.capitalize}" %> </h4>
+      <% if @user.organization? %>
+        <h4> <%= @user.organization.name %> </h4>
+      <% else %>
+        <h4> <%= "#{@user.first_name.capitalize} #{@user.last_name.capitalize}" %> </h4>
+        <div class="container-current_skills">
+          <% @user.my_skills.each do |my_skill| %>
+            <div class="btn main-btn"> <%= my_skill.skill.name %> </div>
+          <% end %>
+        </div>
+      <% end %>
       <% if @user.organization? %>
         <%= link_to 'Create a Project', new_project_path %>
       <% else %>
-        <%= link_to user_my_skills_path(@user) do %>
+        <%= link_to user_my_skills_path(@user), :id => "add-skill" do  %>
           <div class="capsule"><p>Add Skills to Your Profile<p> <i class="fas fa-plus" ></i> </div>
         <% end %>
+        <div id="popup">
+          <div class="container-skills">
+            <% (@skills - @user.skills).each do |skill| %>
+              <%= simple_form_for [current_user, @my_skill], :class => "skill" do |f| %>
+                <%= hidden_field_tag("[skill]", "#{skill.id}") %>
+                <%= f.submit "#{skill.name}", class: "btn main-btn" %>
+              <% end %>
+            <% end %>
+          </div>
+          <%= link_to 'Done', dashboard_path, :class => "btn main-btn close-section" %>
+        </div>
+        <!--------------------
+        <div class="container-skills">
+          <%# @skills.each do |skill| %>
+            <%# simple_form_for [current_user, @my_skill], :class => "skill" do |f| %>
+              <%= collection_check_boxes(current_user, @my_skill, Skill.all, :id, :name) %>
+              <%# f.submit "submit", class: "btn main-btn" %>
+            <%# end %>
+          <%# end %>
+        </div>
+        ---------------------->
       <% end %>
     </div>
     <div class="applications-projects"> 
@@ -127,3 +157,4 @@
     </div>
   </div>
 </div>
+

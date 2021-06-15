@@ -29,6 +29,7 @@ class UsersController < ApplicationController
     @user = current_user
     @all_projects = Project.all
     @my_skill = MySkill.new
+    @skills = Skill.all
     if @user.organization?
       @organization = @user.organization
       @projects = @organization.projects

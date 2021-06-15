@@ -28,13 +28,14 @@
       }
 
       .capsule {
-        margin: 16px 0px;
+        margin: 16px 0px 4px 0px;
         display: flex;
         align-items: center;
         justify-content: center;
 
         p {
           margin-right: 8px;
+          margin-bottom: 0px;
         }
       }
     }

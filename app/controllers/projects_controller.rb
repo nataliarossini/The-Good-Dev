@@ -8,7 +8,8 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     @chatroom = Chatroom.where(user: current_user, recipient: @project.organization.user).or(Chatroom.where(user: @project.organization.user, recipient: current_user)).first
-    # @markers = [{ lat: @project.latitude, lng: @project.longitude }]
+    @markers = [{ lat: @project.latitude, lng: @project.longitude }]
+    
     # @contact = Chatroom.create(name: 'Contact')
     # raise
     # if @contact.save
@@ -26,6 +27,8 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     @project.organization = current_user.organization
     if @project.save
+      MyBadge.create(user_id: current_user.id, badge_id: Badge.find_by(name: "Experienced Host").id).save if current_user.organization.projects.count == 10 # This line is for job-doer badge (see seed file)
+
       redirect_to @project
     else
       render :new
@@ -37,7 +40,6 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    raise
     @project = Project.find(params[:id])
     @project.update(project_params)
     redirect_to @project
