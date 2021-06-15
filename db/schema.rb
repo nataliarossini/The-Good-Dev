@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2021_06_14_102054) do
-
+ActiveRecord::Schema.define(version: 2021_06_14_190049) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +55,14 @@ ActiveRecord::Schema.define(version: 2021_06_14_102054) do
     t.index ["user_id"], name: "index_applications_on_user_id"
   end
 
+  create_table "badges", force: :cascade do |t|
+    t.string "name"
+    t.string "about"
+    t.string "condition"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "chatrooms", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -71,6 +77,15 @@ ActiveRecord::Schema.define(version: 2021_06_14_102054) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "my_badges", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "badge_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["badge_id"], name: "index_my_badges_on_badge_id"
+    t.index ["user_id"], name: "index_my_badges_on_user_id"
   end
 
   create_table "my_skills", force: :cascade do |t|
@@ -152,6 +167,8 @@ ActiveRecord::Schema.define(version: 2021_06_14_102054) do
   add_foreign_key "applications", "users"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
+  add_foreign_key "my_badges", "badges"
+  add_foreign_key "my_badges", "users"
   add_foreign_key "my_skills", "skills"
   add_foreign_key "my_skills", "users"
   add_foreign_key "organizations", "users"

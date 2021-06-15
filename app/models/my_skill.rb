@@ -1,5 +1,5 @@
 class MySkill < ApplicationRecord
   belongs_to :user
   belongs_to :skill
-  validates :skill_id, uniqueness: true
+  validates :user, uniqueness: { scope: :skill }
 end
