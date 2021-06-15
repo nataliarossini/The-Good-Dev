@@ -6,21 +6,39 @@
     </div>
     <div class="container-cards">
       <% @projects.each do |project| %>
+
         <% if project.photos.attached? %>
           <% photo_source = cl_image_path project.photos.first.key %>
         <% else %>
           <% photo_source = image_path("project_default_background.jpg") %>
         <% end %>
-        <%= link_to project_path(project), :class => "card-project",
-                                           :style => "background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(#{photo_source});" do %>
-          <div class="cell">
-            <p> <i class="fas fa-map-pin"></i> <%= project.location %> </p>
-          </div>
-          <div class="cell">
-            <h3> <%= project.title %> </h3>
-            <p> <%= project.description %> <p>
-          </div>
-        <% end %>
+        <div class="wrap-card">
+          <%= link_to project_path(project), :class => "card-project",
+                                             :style => "background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(#{photo_source});" do %>
+
+            <div class="cell">
+              <p> <i class="fas fa-map-pin"></i> <%= project.location %> </p>
+            </div>
+            <div class="cell">
+              <h3> <%= project.title %> </h3>
+              <p> <%= project.description %> <p>
+            </div>
+
+          <% end %>
+
+            <% if user_signed_in? %>
+              <% if current_user.favorited?(project) %>
+                <%= link_to project_favorites_path(project.id), remote: true, method: :delete do %>
+                  <i class="fas fa-bookmark add"></i>
+                <% end %>
+              <% else %>
+                <%= link_to project_favorites_path(project), remote: true, method: :post do %>
+                  <i class="fas fa-bookmark"></i>
+                <% end %>
+              <% end %>
+            <% end %>
+
+        </div>
       <% end %>
     </div>
   </div>
