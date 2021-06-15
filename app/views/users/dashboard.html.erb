@@ -1,5 +1,5 @@
 <%# link_to 'My Profile', user_path(current_user)  %>
-<div class="container-main">
+<div class="container-dashboard">
   <div class="hold">
     <div class="card-dashboard">
       <% if @user.photo.attached? %>
@@ -13,7 +13,12 @@
         <h4> <%= "#{@user.first_name.capitalize} #{@user.last_name.capitalize}" %> </h4>
         <div class="container-current_skills">
           <% @user.my_skills.each do |my_skill| %>
-            <div class="btn main-btn"> <%= my_skill.skill.name %> </div>
+            <div class="btn main-btn btn-skill"> <%= my_skill.skill.name %> </div>
+          <% end %>
+        </div>
+        <div class="container-current_languages">
+          <% @user.my_languages.each do |my_language| %>
+            <div class="btn main-btn btn-language"> <%= my_language.language.name %> </div>
           <% end %>
         </div>
       <% end %>
@@ -23,27 +28,31 @@
         <%= link_to user_my_skills_path(@user), :id => "add-skill" do  %>
           <div class="capsule"><p>Add Skills to Your Profile<p> <i class="fas fa-plus" ></i> </div>
         <% end %>
-        <div id="popup">
+        <div id="popup-skills">
           <div class="container-skills">
             <% (@skills - @user.skills).each do |skill| %>
               <%= simple_form_for [current_user, @my_skill], :class => "skill" do |f| %>
                 <%= hidden_field_tag("[skill]", "#{skill.id}") %>
-                <%= f.submit "#{skill.name}", class: "btn main-btn" %>
+                <%= f.submit "#{skill.name}", class: "btn main-btn btn-skill" %>
               <% end %>
             <% end %>
           </div>
           <%= link_to 'Done', dashboard_path, :class => "btn main-btn close-section" %>
         </div>
-        <!--------------------
-        <div class="container-skills">
-          <%# @skills.each do |skill| %>
-            <%# simple_form_for [current_user, @my_skill], :class => "skill" do |f| %>
-              <%= collection_check_boxes(current_user, @my_skill, Skill.all, :id, :name) %>
-              <%# f.submit "submit", class: "btn main-btn" %>
-            <%# end %>
-          <%# end %>
+        <%= link_to user_my_languages_path(@user), :id => "add-language" do  %>
+          <div class="capsule"><p>Add Languages to Your Profile<p> <i class="fas fa-plus" ></i> </div>
+        <% end %>
+        <div id="popup-languages">
+          <div class="container-languages">
+            <% (@languages - @user.languages).each do |language| %>
+              <%= simple_form_for [current_user, @my_language], :class => "language" do |f| %>
+                <%= hidden_field_tag("[language]", "#{language.id}") %>
+                <%= f.submit "#{language.name}", class: "btn main-btn btn-language" %>
+              <% end %>
+            <% end %>
+          </div>
+          <%= link_to 'Done', dashboard_path, :class => "btn main-btn close-section" %>
         </div>
-        ---------------------->
       <% end %>
       <hr>
       <div class="saved-items">
@@ -64,36 +73,56 @@
               <div class="card-header" id="headingOne">
                 <h5 class="mb-0">
                   <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#a<%= application.id %>" aria-expanded="false" aria-controls="a<%= application.id %>">
-                    <p><%= "#{application.created_at.strftime("%m/%d/%Y")} - #{application.project.title}" %> <%#= link_to "Respond", application_assess_path(application), class: "btn-primary" if current_user.organization == application.project.organization %> </p>
+                    <p><%= "#{application.created_at.strftime("%m/%d/%Y")} - #{application.user.first_name} #{application.user.last_name} for #{application.project.title}" %> <%#= link_to "Respond", application_assess_path(application), class: "btn-primary" if current_user.organization == application.project.organization %> </p>
                   </button>
                 </h5>
               </div>
               <div id="a<%= application.id %>" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample" >
                 <div class="card-body">
                   <div>
-                    <h3><%= application.project.title %></h3>
-                    <p><%= application.project.description %></p>
-                    <hr>
 
-                    <h3><%= "#{application.user.first_name} - #{application.user.last_name}" %></h3>
-                    <p><%= link_to 'LinkedIn', application.user.linkedin if application.user.linkedin %></p>
-                    <p><%= link_to 'GitHub', application.user.github if application.user.github %></p>
-                    <p><%= application.motivation_letter %></p>
+                    <h5>Project: <%= link_to application.project.title, project_path(application.project), class: "h5-links" %></h5>
+                    <div class="description">
+                      <p><%= application.project.description %></p>
+                    </div>
+                    <div class="mt-4">
+                      <h5>Applicant: <%= link_to "#{application.user.first_name}  #{application.user.last_name}", user_path(application.user), class: "h5-links" %></h5>
+                      <div class="letter">
+                        <p><%= application.motivation_letter %></p>
+                      </div>
+                    </div>
+                    <div class="mt-4">
+                      <% if application.user.linkedin.present? || application.user.github.present? %>
+                        <h6> Check me out on: </h6>
+                      <% end %>
+                      <% if application.user.linkedin.present? %>
+                        <%= link_to application.user.linkedin do %>
+                          <i class="fab fa-linkedin"></i>
+                        <% end %>
+                      <% end %>
+
+
+                  
+                      <% if application.user.github.present? %>
+                        <%= link_to "https://#{application.user.github }" do %>
+                          <i class="fab fa-github-square"></i>
+                        <% end %>
+                      <% end %>
+                    </div>
                     <p><%= cl_image_tag application.resume.key if  application.resume %></p>
+                    <div class="accept-decline">
+                      <% if current_user.organization? %>
+                        <%= simple_form_for (application), :method => :patch do |f| %>
+                          <%= hidden_field_tag "application[status]", "accepted" %>
+                          <%= f.submit "Accept", class: "btn btn-success" %>
+                        <% end %>
 
-                    <% if current_user.organization? %>
-                      <%= simple_form_for (application), :url => dashboard_path, :method => :patch do |f| %>
-                        <%= hidden_field_tag "application[status]", "accepted" %>
-                        <%= f.submit "Accept", class: "btn btn-success" %>
+                        <%= simple_form_for (application), :method => :patch do |f| %>
+                          <%= hidden_field_tag("application[status]", "declined") %>
+                          <%= f.submit "Decline", class: "btn btn-danger" %>
+                        <% end %>
                       <% end %>
-
-                      <%= simple_form_for (application), :url => dashboard_path, :method => :patch do |f| %>
-                        <%= hidden_field_tag("application[status]", "declined") %>
-                        <%= f.submit "Decline", class: "btn btn-danger" %>
-                      <% end %>
-
-                    <% end %>
-
+                    </div>
                   </div>
                 </div>
               </div>
@@ -101,8 +130,7 @@
           </div>
 
 
-
-
+<%# :url => application_respond_path, :method => :patch %>
 
 
 

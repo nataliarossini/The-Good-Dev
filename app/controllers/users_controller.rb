@@ -30,6 +30,8 @@ class UsersController < ApplicationController
     @all_projects = Project.all
     @my_skill = MySkill.new
     @skills = Skill.all
+    @languages = Language.all
+    @my_language = MyLanguage.new
     if @user.organization?
       @organization = @user.organization
       @projects = @organization.projects

@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+MyLanguage.destroy_all
+Language.destroy_all
 MyBadge.destroy_all
 Badge.destroy_all
 MySkill.destroy_all
@@ -87,3 +89,33 @@ badges = [ {name: "Reviewer", about: "review", condition: "when number of review
            {name: "Top Rated", about: "review", condition: "if number of reviews made for user is >= 3 & average rating >=4.5" }]
 
 badges.each { |b| Badge.create(name: b[:name], about: b[:about], condition: b[:condition]) }
+
+# Major spoken languages (over 50 million speakers), in order.
+# List sourced from http://en.wikipedia.org/wiki/List_of_languages_by_number_of_native_speakers
+
+languages = [
+  "Mandarin Chinese",
+  "Spanish",
+  "English",
+  "Hindi/Urdu",
+  "Arabic",
+  "Bengali",
+  "Portuguese",
+  "Russian",
+  "Japanese",
+  "German",
+  "Javanese",
+  "Punjabi",
+  "Wu",
+  "French",
+  "Telugu",
+  "Vietnamese",
+  "Marathi",
+  "Korean",
+  "Tamil",
+  "Italian",
+  "Turkish",
+  "Cantonese/Yue"
+]
+
+languages.each { |e| Language.create(name: e) }

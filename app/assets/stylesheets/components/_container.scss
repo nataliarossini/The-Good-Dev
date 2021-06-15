@@ -1,4 +1,4 @@
-#popup {
+#popup-skills, #popup-languages {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 16px;
   position: relative;
@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: flex-start;
 
-  .container-skills {
+  .container-skills, .container-languages {
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -17,6 +17,9 @@
     .main-btn {
       padding: 2px 8px;
       margin: 4px;
+    }
+    .btn-language {
+      background-color: #f4a261;
     }
   }
 
@@ -31,15 +34,20 @@
   }
 }
 
-.container-current_skills {
+.container-current_skills, .container-current_languages {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-evenly;
   flex-wrap: wrap;
+  margin: 4px;
 
   .main-btn {
     padding: 2px 8px;
     margin: 4px;
+  }
+
+  .btn-language {
+    background-color: #f4a261;
   }
 }
 

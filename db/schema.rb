@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_15_101221) do
+
+ActiveRecord::Schema.define(version: 2021_06_15_103136) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,6 +75,7 @@ ActiveRecord::Schema.define(version: 2021_06_15_101221) do
     t.index ["user_id"], name: "index_chatrooms_on_user_id"
   end
 
+
   create_table "favorites", force: :cascade do |t|
     t.string "favoritable_type", null: false
     t.bigint "favoritable_id", null: false
@@ -88,6 +91,11 @@ ActiveRecord::Schema.define(version: 2021_06_15_101221) do
     t.index ["favoritor_id", "favoritor_type"], name: "fk_favorites"
     t.index ["favoritor_type", "favoritor_id"], name: "index_favorites_on_favoritor"
     t.index ["scope"], name: "index_favorites_on_scope"
+  end
+  create_table "languages", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "messages", force: :cascade do |t|
@@ -108,6 +116,15 @@ ActiveRecord::Schema.define(version: 2021_06_15_101221) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["badge_id"], name: "index_my_badges_on_badge_id"
     t.index ["user_id"], name: "index_my_badges_on_user_id"
+  end
+
+  create_table "my_languages", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "language_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["language_id"], name: "index_my_languages_on_language_id"
+    t.index ["user_id"], name: "index_my_languages_on_user_id"
   end
 
   create_table "my_skills", force: :cascade do |t|
@@ -192,6 +209,8 @@ ActiveRecord::Schema.define(version: 2021_06_15_101221) do
   add_foreign_key "messages", "users"
   add_foreign_key "my_badges", "badges"
   add_foreign_key "my_badges", "users"
+  add_foreign_key "my_languages", "languages"
+  add_foreign_key "my_languages", "users"
   add_foreign_key "my_skills", "skills"
   add_foreign_key "my_skills", "users"
   add_foreign_key "organizations", "users"

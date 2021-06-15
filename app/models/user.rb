@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :my_skills, dependent: :destroy
   has_many :skills, through: :my_skills
+  has_many :my_languages, dependent: :destroy
+  has_many :languages, through: :my_languages
   has_many :my_badges, dependent: :destroy
   has_many :badges, through: :my_badges
   has_many :reviews, dependent: :destroy
