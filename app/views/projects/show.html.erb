@@ -3,21 +3,7 @@
     <div class="row">
       <div class="col-6 mt-5">
         <div class="proj-desc mb-5 mr-3 pl-4 pr-4 pb-4">
-          <% if user_signed_in? %>
-              <% if current_user.favorited?(@project) %>
-                <%= link_to project_favorites_path(@project.id), method: :delete do %>
-                  <i class="fas fa-bookmark add"></i>
-                <% end %>
-              <% else %>
-                <%= link_to project_favorites_path(@project), method: :post do %>
-                  <i class="fas fa-bookmark"></i>
-                <% end %>
-              <% end %>
-            <% end %>
           <h2><%= @project.title %></h2>
-          <hr>
-
-
           <h3>How you can help</h3>
           <p><%= @project.details %></p>
           <div class="mt-4">
@@ -46,9 +32,9 @@
           <p><%= @project.organization.user.description %></p>
           <% if current_user && @project.organization.user != current_user %>
             <% if @chatroom %>
-              <%= link_to "Contact", chatroom_path(@chatroom), class: "main-btn"  %>
+              <%= link_to "Contact", chatroom_path(@chatroom)  %>
             <% else %>
-              <%= link_to 'Contact', project_chatrooms_path(@project), method: :post, class: "main-btn"  %>
+              <%= link_to 'Contact', project_chatrooms_path(@project), method: :post  %>
             <% end %>
 
           <% end %>
@@ -76,8 +62,8 @@
           </div>
         </div>
 
-        <div id="map" class="ml-3 map-style"
-
+        <div id="map" class="ml-3"
+       style="width: 100%; height: 450px;"
        data-markers="<%= @markers.to_json %>"
        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
      </div>

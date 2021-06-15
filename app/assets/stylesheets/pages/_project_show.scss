@@ -1,33 +1,7 @@
 .proj-desc{
-  background-color: rgba(170, 216, 211, 0.6);
-  box-shadow: rgba(0, 0, 0, 0.10) 0px 3px 8px;
+  background-color:#AAD8D3;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 3px;
-  .fa-bookmark{
-    position: absolute;
-    margin-right: 4px;
-    font-size: 32px;
-    color: rgba(255, 255, 255, 0.4);
-    transition: 0.2s;
-    &:hover {
-      color:#FAD67B;
-    }
-  }
-  .add {
-    color: #FAD67B;
-    text-shadow: rgba(0, 0, 0, 0.2) 0px 3px 8px;
-    &:hover{
-      color: rgba(250, 214, 123, 0.5);
-    }
-  }
-  h2 {
-    color: #3F3D56;
-  }
-  h3 {
-    color: rgba(0, 0, 0, 0.8);
-  }
-  h4 {
-    color: #00ADB5;
-  }
 }
 
 .proj-photo img{
@@ -64,15 +38,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  h3 {
-    a{
-      color: #3F3D56;
-      transition: 0.2s;
-      &:hover {
-        color: #00ADB5;
-      }
-    }
-  }
 }
 
 .pict-org img{
@@ -88,12 +53,4 @@
     color: #3F3D56;
     font-weight: 300;
   }
-}
-
-.map-style {
-  padding: 4px;
-  border: 1px solid white;
-  border-radius: 3px;
-  width: 100%;
-  height: 300px;
 }
