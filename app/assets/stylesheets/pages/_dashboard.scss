@@ -47,8 +47,8 @@
       .applications {
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
         padding: 16px;
-        h3 {
-          margin-bottom: 16px;
+        h5 {
+          margin-bottom: 10px;
           padding-bottom: 8px;
           border-bottom: 2px solid #E5E5E5;
         }
@@ -59,6 +59,29 @@
 
         p {
           margin: 0px;
+        }
+
+        .letter{
+          width: 562.5px;
+        }
+
+        .description{
+          width: 562.5px;
+        }
+
+        .fa-linkedin{
+          color: #AAD8D3;
+          font-size: 25px;
+        }
+
+        .fa-github-square{
+          color: #AAD8D3;
+          font-size: 25px;
+        }
+
+        .accept-decline{
+          display: flex;
+          justify-content: space-around;
         }
       }
       .projects {
@@ -183,5 +206,27 @@
         }
       }
     }
+  }
+}
+p{
+  font-size: 16px !important;
+  color: #3F3D56;
+}
+
+.h5-links{
+  color: #0E0000 !important;
+}
+
+.h5-links:hover{
+  font-weight: bolder;
+}
+
+.btn-link {
+  &:focus{
+    text-decoration: none;
+    box-shadow: none;
+  }
+  &:hover{
+    text-decoration:none;
   }
 }

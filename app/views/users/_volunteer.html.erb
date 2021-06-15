@@ -13,6 +13,22 @@
           <p><i class="fas fa-map-marker-alt"></i> <%= @user.address.upcase %></p>
           <h3>About me</h3>
           <p><%= @user.description %></p>
+          <div class="mb-3">
+            <% if @user.linkedin.present? || @user.github.present? %>
+              <h6> Check me out on: </h6>
+            <% end %>
+            <% if @user.linkedin.present? %>
+              <%= link_to @user.linkedin do %>
+                <i class="fab fa-linkedin"></i>
+              <% end %>
+            <% end %>
+            <% if @user.github.present? %>
+              <%= link_to "https://#{@user.github }" do %>
+                <i class="fab fa-github-square"></i>
+              <% end %>
+            <% end %>
+          </div>
+
           <h3>My Skills <%= image_tag "laptop.png", alt: "laptop" %> </h3>
           <p><i class="fas fa-check"></i> Ruby</p>
           <p><i class="fas fa-check"></i> Javascript</p>

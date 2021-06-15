@@ -28,8 +28,8 @@ document.addEventListener('turbolinks:load', () => {
   initUpdateNavbarOnScroll();
   initFixedNavbar();
   initChatroomCable();
-  openPopup();
   initMapbox();
+  openPopup();
 });
 
 // External imports
