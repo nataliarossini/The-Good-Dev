@@ -1,13 +1,14 @@
 // Specific CSS for your home-page
-.container {
+.container-home {
   h2 {
+    color:#9C9696;
     text-align: center;
     padding: 32px;
-    font-size: 2.5em;
+    font-size: 40px;
   }
   p {
     font-weight: lighter;
-    font-size: 1.5em;
+    font-size: 28px;
   }
 }
 
@@ -15,6 +16,10 @@
   height: 280px;
 }
 
+.home-margin {
+  margin-right: 120px;
+  margin-left: 120px;
+}
 
 .recent-posted {
   margin: 48px;
@@ -22,4 +27,27 @@
     h3 {
     color: #9C9696;
   }
+}
+footer {
+  img {
+    height: 64px;
+  }
+  h3{
+    margin-top: 12px;
+    font-size: 18px;
+    color: #393E46;
+  }
+  a{
+    margin: 8px;
+    font-size: 14px;
+    color: rgba(0,0,0,0.5);
+  }
+  padding: 12px;
+  text-align-last: left;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+  background-color: rgba(156, 150, 150, 0.3);
+  height: 50vh;
+  text-align: right;
 }
