@@ -35,6 +35,7 @@ document.addEventListener('turbolinks:load', () => {
     openPopupForLanguagess();
   }
   initMapbox();
+  openPopup();
 });
 
 // External imports
