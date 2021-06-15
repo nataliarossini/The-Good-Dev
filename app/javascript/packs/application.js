@@ -28,7 +28,9 @@ document.addEventListener('turbolinks:load', () => {
   initUpdateNavbarOnScroll();
   initFixedNavbar();
   initChatroomCable();
-  openPopup();
+  if (document.querySelector('#add-skill')) {
+    openPopup();
+  }
   initMapbox();
 });
 
