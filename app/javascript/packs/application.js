@@ -20,7 +20,7 @@ ActiveStorage.start()
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 import { initFixedNavbar } from '../components/navbar';
 import { initChatroomCable } from '../channels/chatroom_channel';
-import { openPopup, prevent } from '../pages/dashboard.js'
+import { openPopupForSkills, openPopupForLanguagess } from '../pages/dashboard.js'
 import { initMapbox } from '../plugins/init_mapbox';
 
 document.addEventListener('turbolinks:load', () => {
@@ -28,6 +28,12 @@ document.addEventListener('turbolinks:load', () => {
   initUpdateNavbarOnScroll();
   initFixedNavbar();
   initChatroomCable();
+  if (document.querySelector('#add-skill')) {
+    openPopupForSkills();
+  }
+  if (document.querySelector('#add-language')) {
+    openPopupForLanguagess();
+  }
   initMapbox();
   openPopup();
 });
