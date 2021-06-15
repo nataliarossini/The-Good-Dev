@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2021_06_14_190049) do
 
   # These are extensions that must be enabled in order to support this database
@@ -67,6 +68,10 @@ ActiveRecord::Schema.define(version: 2021_06_14_190049) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.bigint "recipient_id"
+    t.index ["recipient_id"], name: "index_chatrooms_on_recipient_id"
+    t.index ["user_id"], name: "index_chatrooms_on_user_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -75,6 +80,7 @@ ActiveRecord::Schema.define(version: 2021_06_14_190049) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "read", default: false
     t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
@@ -165,6 +171,7 @@ ActiveRecord::Schema.define(version: 2021_06_14_190049) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "applications", "projects"
   add_foreign_key "applications", "users"
+  add_foreign_key "chatrooms", "users", column: "recipient_id"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
   add_foreign_key "my_badges", "badges"

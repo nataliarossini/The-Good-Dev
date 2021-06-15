@@ -36,6 +36,7 @@ class UsersController < ApplicationController
       arr = []
       @projects.each { |e| arr << e.id }
       @applications = Application.all.select { |application| arr.include?(application.project_id) } # Be careful, if there is app, it will return empty array, not nil!!!
+      # @chatroom = Chatroom.where(user: current_user, recipient: @project.organization.user).or(Chatroom.where(user: @project.organization.user, recipient: current_user)).first
     else
       @projects = @user.projects
       @applications = @user.applications

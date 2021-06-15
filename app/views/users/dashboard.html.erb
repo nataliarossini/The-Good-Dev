@@ -51,7 +51,54 @@
         <h3>Applications</h3>
         <h4>Open</h4>
         <% @applications.select { |e| e.open? }.each do |application| %>
-          <p><%= "#{application.created_at.strftime("%m/%d/%Y")} - #{application.project.title}" %> <%= link_to "Respond", application_assess_path(application), class: "btn-primary" if current_user.organization == application.project.organization %> </p>
+
+          <div class="accordion" id="accordionExample">
+            <div class="card">
+              <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                  <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#a<%= application.id %>" aria-expanded="false" aria-controls="a<%= application.id %>">
+                    <p><%= "#{application.created_at.strftime("%m/%d/%Y")} - #{application.project.title}" %> <%#= link_to "Respond", application_assess_path(application), class: "btn-primary" if current_user.organization == application.project.organization %> </p>
+                  </button>
+                </h5>
+              </div>
+              <div id="a<%= application.id %>" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample" >
+                <div class="card-body">
+                  <div>
+                    <h3><%= application.project.title %></h3>
+                    <p><%= application.project.description %></p>
+                    <hr>
+
+                    <h3><%= "#{application.user.first_name} - #{application.user.last_name}" %></h3>
+                    <p><%= link_to 'LinkedIn', application.user.linkedin if application.user.linkedin %></p>
+                    <p><%= link_to 'GitHub', application.user.github if application.user.github %></p>
+                    <p><%= application.motivation_letter %></p>
+                    <p><%= cl_image_tag application.resume.key if  application.resume %></p>
+
+                    <% if current_user.organization? %>
+                      <%= simple_form_for (application), :url => dashboard_path, :method => :patch do |f| %>
+                        <%= hidden_field_tag "application[status]", "accepted" %>
+                        <%= f.submit "Accept", class: "btn btn-success" %>
+                      <% end %>
+
+                      <%= simple_form_for (application), :url => dashboard_path, :method => :patch do |f| %>
+                        <%= hidden_field_tag("application[status]", "declined") %>
+                        <%= f.submit "Decline", class: "btn btn-danger" %>
+                      <% end %>
+
+                    <% end %>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+
+
         <% end %>
         <p><em><%= "Your open applications will be displayed here" unless @applications.select { |e| e.open? }.first %></em></p>
         <h4>Approved</h4>
