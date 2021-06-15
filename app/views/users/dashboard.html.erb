@@ -92,15 +92,8 @@
                         <%= link_to application.user.linkedin do %>
                           <i class="fab fa-linkedin"></i>
                         <% end %>
-                    <h3><%= application.project.title %></h3>
-                    <p><%= application.project.description %></p>
-                    <hr>
+                      <% end %>
 
-                    <h3><%= "#{application.user.first_name} - #{application.user.last_name}" %></h3>
-                    <p><%= link_to 'LinkedIn', application.user.linkedin if application.user.linkedin %></p>
-                    <p><%= link_to 'GitHub', application.user.github if application.user.github %></p>
-                    <p><%= application.motivation_letter %></p>
-                    <p><%= cl_image_tag application.resume.key if  application.resume %></p>
 
                   
                       <% if application.user.github.present? %>
