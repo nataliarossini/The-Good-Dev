@@ -1,5 +1,9 @@
-.container-main {
+.container-dashboard {
   display: flex;
+  p{
+    font-size: 16px !important;
+    color: #3F3D56;
+  }
   
   .hold {
     margin: 16px;
@@ -207,10 +211,6 @@
       }
     }
   }
-}
-p{
-  font-size: 16px !important;
-  color: #3F3D56;
 }
 
 .h5-links{
