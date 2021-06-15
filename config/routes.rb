@@ -18,6 +18,8 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :create]
     get '/my_skills', to: 'users#my_skills', as: :my_skills
     resources :my_skills, only:[:create]
+    get '/my_languages', to: 'users#my_languages', as: :my_languages
+    resources :my_languages, only:[:create]
   end
   resources :organizations, only: [:new, :create]
   resources :chatrooms, only: [:show] do
