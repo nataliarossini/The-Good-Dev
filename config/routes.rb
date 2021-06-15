@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resources :applications, only: [] do
     get '/assess', to: 'applications#assess'
-    patch '/respond', to: 'applications#respond'
+    patch '/', to: 'applications#respond'
   end
 
   resources :users, only: [:index, :show] do
