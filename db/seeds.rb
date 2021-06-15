@@ -13,7 +13,10 @@ Application.destroy_all
 Review.destroy_all
 Project.destroy_all
 Organization.destroy_all
+Message.destroy_all
+Chatroom.destroy_all
 User.destroy_all
+Favorite.destroy_all
 organization = Organization.new(
   name: 'Dunder Mifflin',
   registration: '1234567',

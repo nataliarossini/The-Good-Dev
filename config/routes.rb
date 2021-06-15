@@ -7,6 +7,15 @@ Rails.application.routes.draw do
     resources :chatrooms, only: :create
     resources :applications, only: [:new, :create]
     resources :reviews, only: [:new, :create]
+    member do
+      post :favorite
+      post :unfavorite
+    end
+    resources :favorites, only: [:create] do
+      collection do
+        delete '/', action: :destroy
+      end
+    end
   end
 
   resources :applications, only: [] do

@@ -45,6 +45,13 @@
         </div>
         ---------------------->
       <% end %>
+      <hr>
+      <div class="saved-items">
+        <h4>Saved <i class="far fa-bookmark"></i></h4>
+        <% current_user.all_favorited.each do |i| %>
+          <%=link_to i.title, project_path(i) %>
+        <% end %>
+      </div>
     </div>
     <div class="applications-projects"> 
       <div class="applications">
