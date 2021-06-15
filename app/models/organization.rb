@@ -6,4 +6,5 @@ class Organization < ApplicationRecord
   validates :registration, presence: true, uniqueness: true
   validates :category, inclusion: { in: %w(a b c) }
   validates :url, uniqueness: true
+  acts_as_favoritable
 end
