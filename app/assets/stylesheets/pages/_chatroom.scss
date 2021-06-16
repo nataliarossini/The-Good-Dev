@@ -1,6 +1,6 @@
 .chat-container {
   width: 800px;
-  height: 100vh;
+  height: 70vh;
   margin:auto;
   margin-top: 12px;
   background-color: rgba(0, 0, 0, 0.05);
@@ -30,7 +30,11 @@
   text-align: -webkit-right;
 }
 .message-input{
-    position: fixed;
-    bottom: 0;
-    width: 760px;
+  width: 800px;
+  height: 30vh;
+  margin:auto;
+  overflow: inherit;
+  .form-control {
+    width: 95%;
+  }
 }
