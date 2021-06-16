@@ -160,13 +160,12 @@
         <h4>Closed</h4>
         <% @applications.select { |e| e.declined? || Date.today >= e.project.end_date }.each do |application| %>
         <div>
-
-            <p><%= "#{application.created_at.strftime("%m/%d/%Y")} - #{application.user.first_name} #{application.user.last_name} for project #{application.project.title}" %>
-            <% if current_user.organization? %>
-              <%=  link_to "Leave a review", new_user_review_path(application.user), class: 'btn btn-light-green' %>
-            <% else %>
-             <%= link_to "Leave a review", new_project_review_path(@project), class: 'btn btn-light-green' %>
-            <% end %>
+          <p><%= "#{application.created_at.strftime("%m/%d/%Y")} - #{application.user.first_name} #{application.user.last_name} for project #{application.project.title}" %>
+          <%= if current_user.organization?
+                link_to "Leave a review", new_user_review_path(application.user), class: 'btn btn-light-green'
+              else 
+                link_to "Leave a review", new_project_review_path(@project), class: 'btn btn-light-green'
+              end %> </p>
         </div>
         <% end %>
         <p><em><%= "Closed applications will be displayed here" unless @applications.select { |e| e.declined? || Date.today >= e.project.end_date }.first %></em></p>
@@ -188,9 +187,8 @@
   </div>
   
   <div class="container-sidebar">
-    <div class="container-news dash-news">
+    <div class="container-news">
       <h4>The Good Dev News</h4>
-      <%= render "projects/news" %>
     </div>
     <div class="container-projects">
       <h4>Latest Projects</h4>
