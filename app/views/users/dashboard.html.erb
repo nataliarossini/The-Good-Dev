@@ -179,7 +179,17 @@
             <div class="project-info">
               <h4><%= project.title %> </h4>
               <p><%= project.description %><p>
-              <%= link_to "See the Project", project_path(project)  %>
+              <div class="display-flex-proj">
+                <%= link_to "See the Project", project_path(project)  %>
+              </div>
+                <div>
+                  <%= link_to edit_project_path(project) do %>
+                    <i class="fas fa-trash-alt"></i>
+                  <% end %>
+                  <%= link_to project_path(project), method: :delete do %>
+                    <i class="fas fa-edit"></i>
+                  <% end %>
+                </div>
             </div>
           </div>
         <% end %>

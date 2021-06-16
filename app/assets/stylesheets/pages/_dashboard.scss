@@ -159,6 +159,12 @@
                 color: #495057;
               }
             }
+            .display-flex-proj{
+              height: 24px;
+              width: 200px;
+              display: flex;
+              justify-content: space-between;
+            }
           }
         }
       }
@@ -288,4 +294,5 @@
     transition-delay: 50ms;
   }
 }
+
 
