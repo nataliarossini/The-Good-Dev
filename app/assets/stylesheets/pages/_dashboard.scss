@@ -79,9 +79,19 @@
           font-size: 25px;
         }
 
+        .fa-linkedin:hover{
+          font-weight: bolder;
+          transition-delay: 50ms;
+        }
+
         .fa-github-square{
           color: #AAD8D3;
           font-size: 25px;
+        }
+
+        .fa-github-square:hover{
+          font-weight: bolder;
+          transition-delay: 50ms;
         }
 
         .accept-decline{
@@ -232,6 +242,7 @@
       padding: 8px;
     }
   }
+}
 
 .h5-links{
   color: #0E0000 !important;
@@ -239,6 +250,8 @@
 
 .h5-links:hover{
   font-weight: bolder;
+  opacity: 0.60;
+  transition-delay: 50ms;
 }
 
 .btn-link {
@@ -248,6 +261,8 @@
   }
   &:hover{
     text-decoration:none;
+    opacity: 0.60;
+    font-weight: bolder;
+    transition-delay: 50ms;
   }
-}
 }
