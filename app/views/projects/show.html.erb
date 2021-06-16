@@ -16,8 +16,6 @@
             <% end %>
           <h2><%= @project.title %></h2>
           <hr>
-
-
           <h3>How you can help</h3>
           <p><%= @project.details %></p>
           <div class="mt-4">
@@ -51,21 +49,44 @@
             <% else %>
               <%= link_to 'Contact', project_chatrooms_path(@project), method: :post, class: "main-btn"  %>
             <% end %>
-
           <% end %>
         </div>
       </div>
       <div class="col-6">
         <div class="img-btn ml-3">
           <div class="proj-photo mt-5 mb-3">
-              <%= @project.photos.attached? ? (cl_image_tag @project.photos.first.key) : (image_tag "default-project-photo-unsplash.jpg") %>
-          </div>
-
+          <% if @project.photos.length == 1  %>
+            <%= cl_image_tag @project.photos.first.key %>
+          <% elsif @project.photos.length > 1 %>
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            </ol>
+            <div class="carousel-inner">
+              <% @project.photos.each do |photo| %>
+              <div class="carousel-item <%= 'active' if photo == @project.photos[0] %>">
+                <%= cl_image_tag photo.key, class: "d-block w-100" %>
+              </div>
+              <% end %>
+            </div>
+          <% else %>
+              <%= image_tag "default-project-photo-unsplash.jpg" %>
+          <% end %>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+            </div>
           <div class="buttons mb-4 pb-3 pr-2">
             <% if @project.organization.user_id == current_user&.id %>
               <div>
-                <%= link_to "Update the Project", edit_project_path(@project), class: "btn btn-light-green" %>
-                <%= link_to "Delete this Project", project_path(@project), method: :delete, class: "btn btn-coral" %>
+                <%= link_to "Update the Project", edit_project_path(@project), class: "btn btn-light-green mt-3" %>
+                <%= link_to "Delete this Project", project_path(@project), method: :delete, class: "btn btn-coral mt-3" %>
               </div>
             <% elsif current_user%>
               <% if current_user.applications.select { |a| a.project_id == @project.id }.length == 0 %>
@@ -75,6 +96,8 @@
               <% end %>
             <% end %>
           </div>
+          </div>
+
         </div>
 
         <div id="map" class="ml-3 map-style"
