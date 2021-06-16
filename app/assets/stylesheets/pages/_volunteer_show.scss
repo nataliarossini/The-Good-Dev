@@ -1,9 +1,17 @@
 .fa-github-square{
   font-size: 30px;
   color: #3F3D56;
+  &:hover {
+    color: rgba(63, 61, 86, 0.8);
+    text-shadow: rgba(225, 225, 225, 1) 4px 8px 12px;
+  }
 }
 
 .fa-linkedin{
   font-size: 30px;
   color: #3F3D56;
+    &:hover {
+    color: rgba(63, 61, 86, 0.9);
+    text-shadow: rgba(225, 225, 225, 1) 4px 8px 8px;
+  }
 }

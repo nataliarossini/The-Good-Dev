@@ -30,14 +30,17 @@
           </div>
 
           <h3>My Skills <%= image_tag "laptop.png", alt: "laptop" %> </h3>
-          <p><i class="fas fa-check"></i> Ruby</p>
-          <p><i class="fas fa-check"></i> Javascript</p>
-          <p><i class="fas fa-check"></i> Python</p>
-          <p><i class="fas fa-check"></i> Hardware</p>
-          <h4>Languages I speak <i class="far fa-comment-dots"></i></h4>
-          <p>English</p>
-          <p>Spanish</p>
-          <p>French</p>
+          <% @user.skills.each do |skill| %>
+            <p><i class="fas fa-check"></i> <%= skill.name %></p>
+          <% end %>
+
+
+          <% if @user.languages.length > 0 %>
+            <h4>Languages I speak <i class="far fa-comment-dots"></i></h4>
+            <% @user.languages.each do |l| %>
+              <p><%= l.name %></p>
+            <% end %>
+          <% end %>
         </div>
 
     </div>
