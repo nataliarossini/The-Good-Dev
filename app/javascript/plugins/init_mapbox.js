@@ -1,12 +1,9 @@
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
-console.log('test2')
-
 const initMapbox = () => {
-  console.log('test3')
+
   const mapElement = document.getElementById('map');
-console.log(mapElement.dataset.mapboxApiKey)
   if (mapElement) {
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     const map = new mapboxgl.Map({
