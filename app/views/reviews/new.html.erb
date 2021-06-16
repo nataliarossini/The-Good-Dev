@@ -1,10 +1,17 @@
-<div class="container-main">
-  <div class="container-form">
-    <h2> Leave a Review </h2>
+<div class="page-form">
+  <h2> Leave a Review </h2>
+  <div class="container">
       <%= simple_form_for [@reviewed, @review], :url => @reviewed.is_a?(User) ? user_reviews_path : project_reviews_path do |f| %>
-        <%= f.input :content, label: 'Share your thoughts' %>
-        <%= f.select :rating, 0..5, label: 'Rate' %><br>
-        <%= f.button :submit, "Submit your review", class: "btn-success" %>
+      <div class="form-inputs">
+        <div class="division">
+          <%= f.input :content, label: 'Share your thoughts' %>
+        </div>
+          <%= f.select :rating, 0..5, label: 'Rate' %><br>
+
+        <div class="form-actions">
+          <%= f.button :submit, "Submit your review", class: "main-btn" %>
+        </div>
+      </div>
       <% end %>
   </div>
 </div>
