@@ -1,8 +1,29 @@
 <div class= "container-main">
   <div class="holder">
-    <h1> Projcts Available </h1>
+    <h1> Projects Available </h1>
     <div class="filter-bar">
-      <!-- !!!Locate our filter here!!!  -->
+      <button class="btn-filter" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        Filter <i class="fas fa-chevron-down"></i>
+      </button>
+      <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+          <%= form_tag projects_path, method: :get do %>
+            <%= label_tag "Narrow your search" %>
+            <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Search for a project or location"
+            %>
+            <%= submit_tag "Search", class: "btn-light-green mt-3" %>
+          <% end %>
+
+
+          <%#= simple_form_for :project, url: projects_path, method: :get do |f| %>
+                <%#= f.input :query, label: "Narrow your search"%>
+                <%#= f.button :submit, "Search" %>
+          <%# end %>
+        </div>
+      </div>
     </div>
     <div class="container-cards">
       <% @projects.each do |project| %>

@@ -22,6 +22,7 @@ import { initFixedNavbar } from '../components/navbar';
 import { initChatroomCable } from '../channels/chatroom_channel';
 import { openPopupForSkills, openPopupForLanguagess } from '../pages/dashboard.js'
 import { initMapbox } from '../plugins/init_mapbox';
+import { initAutocomplete } from '../plugins/init_autocomplete';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your JS functions here
@@ -35,7 +36,8 @@ document.addEventListener('turbolinks:load', () => {
     openPopupForLanguagess();
   }
   initMapbox();
-  openPopup();
+  // openPopup();
+  initAutocomplete();
 });
 
 // External imports

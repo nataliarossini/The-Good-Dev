@@ -1,8 +1,13 @@
 class ProjectsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show ]
   def index
-    @projects = Project.all
-    @reviews = Review.all
+    if params[:query].present?
+      @projects = Project.search_by_title_and_location(params[:query])
+      @reviews = Review.all
+    else
+      @projects = Project.all
+      @reviews = Review.all
+    end
   end
 
   def show
@@ -28,7 +33,6 @@ class ProjectsController < ApplicationController
     @project.organization = current_user.organization
     if @project.save
       MyBadge.create(user_id: current_user.id, badge_id: Badge.find_by(name: "Experienced Host").id).save if current_user.organization.projects.count == 10 # This line is for job-doer badge (see seed file)
-
       redirect_to @project
     else
       render :new

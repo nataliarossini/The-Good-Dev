@@ -92,7 +92,9 @@
               <% if current_user.applications.select { |a| a.project_id == @project.id }.length == 0 %>
                 <%= link_to "Apply", new_project_application_path(@project), class: 'btn btn-light-green' %>
               <% else %>
-                <%= link_to "Leave a review", new_project_review_path(@project), class: 'btn btn-light-green' %>
+                <% if Date.today >= @project.end_date %>
+                  <%= link_to "Leave a review", new_project_review_path(@project), class: 'btn btn-light-green' %>
+                <% end %>
               <% end %>
             <% end %>
           </div>

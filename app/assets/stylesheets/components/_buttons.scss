@@ -57,3 +57,20 @@
   color: white;
   opacity: 0.8;
 }
+
+.btn-filter {
+  text-decoration: none;
+  color: #393E46;
+  border-style: none;
+  font-size: 18px;
+  background-color: transparent;
+  transition: 0.2s;
+  font-weight: lighter;
+  i {
+    // font-weight: lighter;
+    font-size: 12px;
+  }
+  &:hover {
+    color: #00ADB5;
+  }
+}

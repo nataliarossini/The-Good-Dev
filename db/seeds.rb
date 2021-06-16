@@ -77,7 +77,6 @@ Project.create(
   end_date: 10.days.from_now,
   remote: true,
   organization_id: organization.id
-
   )
 
 skills_list = ['Teamwork', 'Teaching', 'Ruby', 'Rails', 'Python', 'HTML', 'CSS', 'JavaScript', 'Front-end', 'Back-end']
