@@ -1,57 +1,103 @@
-<div class="banner">
-<h1>Share your skills, <br> help people,<br> be a volunteer.</h1>
-<div class="banner-btns">
-<%= link_to 'See Projects', projects_path, class: 'main-btn' %>
-<%= link_to 'Learn More' , root_path, class: 'border-btn' %>
-</div>
-</div>
-<div class="container">
-  <h2>About us</h2>
-  <p>We want to connect IT professionals and institutions who are willing to make a lasting change around the world. Together we can make a difference.</p>
-  <h2>How it works</h2>
-  <p>If you are a IT professional you can apply to work as a volunteer. We provide a range of intitutions willing to host you in exchange of your services. </p>
-  <div class="d-flex">
-    <%= image_tag 'img1.svg', class: 'img-home' %>
-    <span>1 Join our community</span>
-    <span>2 Aplly to a project</span>
-    <span>3 Wait for your
-application approval</span>
-    <span>4 Gain experience while working
- in meaningful projects!</span>
-  </div>
-  <p>If you are a charity institution or a business aiming to work on along with high skilled IT professionals, The Good Dev got your back! You won’t have to worry about your bugdet, all you have to do is to host our amazing professionals who’s willing to help your cause and the community.</p>
-    <div class="d-flex">
-    <span>1 Join our community</span>
-    <span>2 Aplly to a project</span>
-    <span>3 Wait for your application approval</span>
-    <span>4 Gain experience while working in meaningful projects!</span>
-    <%= image_tag 'img2.svg', class: 'img-home' %>
-  </div>
+<div class="home-container">
 
-</div>
-<div class="recent-posted">
-    <h3>Recently posted</h3>
-    <div class="container-cards">
-      <% @projects.reverse.first(3).each do |project| %>
-        <%= link_to project_path(project) do %>
-          <% if project.photos.attached? %>
-            <% photo_source = cl_image_path project.photos.first.key %>
-          <% else %>
-            <% photo_source = image_path("project_default_background.jpg") %>
-          <% end %>
-          <div class="card-project" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= photo_source %>);">
-            <div class="cell">
-              <p><i class="fas fa-map-pin"></i> <%= project.location %> </p>
-            </div>
-            <div class="cell">
-              <h3> <%= project.title %> </h3>
-              <p> <%= project.description %> <p>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
-      <div>
-      <%= link_to 'See more', projects_path %>
+  <div class="banner">
+    <div class="home-margin">
+      <h1>Share your skills, <br> help people,<br> be a volunteer.</h1>
+      <div class="banner-btns">
+      <%= link_to 'See Projects', projects_path, class: 'main-btn' %>
+      <%= link_to 'Learn More' , root_path, class: 'border-btn' %>
       </div>
     </div>
+  </div>
+  <div class="container-home">
+    <div class="home-margin">
+      <h2>About us</h2>
+      <p>We want to connect IT professionals and institutions who are willing to make a lasting change around the world. Together we can make a difference.</p>
+      <h2>How it works</h2>
+      <p>If you are a IT professional you can apply to work as a volunteer. We provide a range of intitutions willing to host you in exchange of your services. </p>
+      <div class="d-flex">
+        <%= image_tag 'img1.svg', class: 'img-home' %>
+        <span>1 Join our community</span>
+        <span>2 Aplly to a project</span>
+        <span>3 Wait for your
+    application approval</span>
+        <span>4 Gain experience while working
+     in meaningful projects!</span>
+      </div>
+      <p>If you are a charity institution or a business aiming to work on along with high skilled IT professionals, The Good Dev got your back! You won’t have to worry about your bugdet, all you have to do is to host our amazing professionals who’s willing to help your cause and the community.</p>
+        <div class="d-flex">
+        <span>1 Join our community</span>
+        <span>2 Aplly to a project</span>
+        <span>3 Wait for your application approval</span>
+        <span>4 Gain experience while working in meaningful projects!</span>
+        <%= image_tag 'img2.svg', class: 'img-home' %>
+      </div>
+
+    </div>
+
+  </div>
+  <div class="recent-posted">
+      <h3>Recently posted</h3>
+      <div class="container-cards">
+        <% @projects.reverse.first(3).each do |project| %>
+          <%= link_to project_path(project) do %>
+            <% if project.photos.attached? %>
+              <% photo_source = cl_image_path project.photos.first.key %>
+            <% else %>
+              <% photo_source = image_path("project_default_background.jpg") %>
+            <% end %>
+            <div class="card-project" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= photo_source %>);">
+              <div class="cell">
+                <p><i class="fas fa-map-pin"></i> <%= project.location %> </p>
+              </div>
+              <div class="cell">
+                <h3> <%= project.title %> </h3>
+                <p> <%= project.description %> <p>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+        <div>
+        <%= link_to 'See more', projects_path %>
+        </div>
+      </div>
+  </div>
+  <div class="sub-banner">
+    <div class="home-margin">
+      <h2>Conversations today could lead<br> to opportunity tomorrow</h2>
+      <p>Sending messages to people is a great way<br> to build relationships as you take the next step<br> in your career or projects</p>
+    </div>
+  </div>
+  <footer>
+    <%= image_tag "logo1.svg" %>
+    <div>
+      <h3>General</h3>
+      <li><a href="#">Sign Up</a></li>
+      <li><a href="#">Help Center</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Press</a></li>
+      <li><a href="#">Blog</a></li>
+      <li><a href="#">Careers</a></li>
+      <li><a href="#">Developers</a></li>
+    </div>
+    <div>
+      <h3>Browse</h3>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">News</a></li>
+      <li><a href="#">Fundraising</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Partners</a></li>
+    </div>
+    <div>
+      <h3>Directories</h3>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Members</a></li>
+      <li><a href="#">Organizations</a></li>
+      <li><a href="#">News Letter</a></li>
+      <li><a href="#">Articles</a></li>
+      <li><a href="#">Feedbacks</a></li>
+      <li><a href="#">Schools</a></li>
+    </div>
+  </footer>
 </div>
+

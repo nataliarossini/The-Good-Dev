@@ -2,7 +2,7 @@
   padding-top: 8vh;
   background: asset-url('banner.svg') no-repeat right;
   background-color: #EEEEEE;
-  height: 80vh;
+  height: 90vh;
   text-indent: inherit;
   h1 {
     color: #393E46;
@@ -15,4 +15,23 @@
 }
 .banner-btns {
   margin: 32px;
+}
+
+.sub-banner {
+  background: asset-url('sub-banner2.svg') no-repeat left;
+  background-color: white;
+  background-size: 30%;
+  height: 80vh;
+  text-align: right;
+  h2 {
+    color: #393E46;
+    padding-top: 48px;
+    padding-right: 32px;
+    font-size: 3em;
+  }
+  p {
+    font-weight: lighter;
+    font-size: 32px;
+    padding-right: 32px;
+  }
 }
