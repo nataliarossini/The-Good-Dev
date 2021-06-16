@@ -5,6 +5,7 @@ class Application < ApplicationRecord
   validates :status, presence: true
   enum status: [:open, :accepted, :declined]
   has_one_attached :resume
+  validates :user, uniqueness: { scope: :project }
 end
 
 # ajoute defaut :open a la table application pour le status
