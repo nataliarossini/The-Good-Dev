@@ -2,7 +2,7 @@
   <div class="form-inputs">
     <div class="division">
       <%= f.input :title, label: 'Project title' %>
-      <%= f.input :location, label: 'Project location' %>
+      <%= f.input :location, label: 'Project location', input_html: { id: "user_address" } %>
     </div>
     <%= f.input :description, label: 'Project description' %>
     <%= f.input :details, label: 'Project details' %>
