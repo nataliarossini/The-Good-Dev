@@ -20,6 +20,12 @@ class User < ApplicationRecord
   has_many :messages, through: :chatrooms
   has_many :rec_messages, through: :recipient_chatrooms, source: :messages
   acts_as_favoritor
+  # include PgSearch::Model
+  # pg_search_scope :search_by_name,
+  #   against: [:first_name, :last_name],
+  #   using: {
+  #     tsearch: { prefix: true }
+  #   }
 
   def all_messages
     messages + rec_messages
