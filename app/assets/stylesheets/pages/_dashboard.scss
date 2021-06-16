@@ -1,7 +1,7 @@
 .container-dashboard {
   display: flex;
   p{
-    font-size: 16px;
+    font-size: 16px !important;
     color: #3F3D56;
   }
   
@@ -167,7 +167,7 @@
   .container-sidebar {
     flex-shrink: 0;
     width: 380px;
-    height: 100vh;
+    height: 92vh;
     position: sticky;
     top: 0;
     right: 0;
@@ -188,16 +188,6 @@
       background-color: white;
       box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     }
-
-    .container-news p{
-      font-size:14px;
-    }
-
-    .dash-news{
-      height: 52vh;
-      margin: 2vh;
-    }
-
     .container-projects {
       height: 43vh;
       margin: 2vh;
@@ -239,6 +229,7 @@
           flex: 0 0 66%;
   
           p {
+            
             margin: 0px;
             font-size: 14px;
           }
@@ -288,4 +279,3 @@
     transition-delay: 50ms;
   }
 }
-
