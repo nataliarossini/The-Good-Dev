@@ -30,16 +30,17 @@
     }
 
     .container-news {
-      height: 43vh;
+      height: 52vh;
       margin: 2vh;
+      // padding-top: 6px;
       background-color: white;
       box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
       .card-news {
-        height: 12.5vh;
+        height: 13.5vh;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        border-bottom: 1px solid #E5E5E5;
+        // border-bottom: 1px solid #E5E5E5;
         overflow:hidden;
         overflow-wrap: break-word;
           img {
@@ -66,6 +67,10 @@
             }
           }
         }
+        .card-news:hover{
+        background-color: #ecf8f8;
+        border-radius: 5px;
+      }
     }
     .container-reviews {
       height: 43vh;
