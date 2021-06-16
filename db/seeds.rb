@@ -84,7 +84,7 @@ skills_list = ['Teamwork', 'Teaching', 'Ruby', 'Rails', 'Python', 'HTML', 'CSS',
 skills_list.each { |e| Skill.create(name: e) }
 
 badges = [ {name: "Reviewer", about: "review", condition: "when number of review made by user reaches to 10" },
-           {name: "Experienced Host", about: "project", condition: "if number of approved applications >=10" },
+           {name: "Experienced Host", about: "project", condition: "if number of projects created by organization >=10" },
            {name: "Top Rated", about: "review", condition: "if number of reviews made for user is >= 3 & average rating >=4.5" }]
 
 badges.each { |b| Badge.create(name: b[:name], about: b[:about], condition: b[:condition]) }

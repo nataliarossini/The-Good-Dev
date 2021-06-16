@@ -11,18 +11,18 @@
         <h4> <%= @user.organization.name %> </h4>
         <div class="container-badges">
           <% @user.my_badges.each do |my_badge| %>
-            <%= image_tag "/badges/reviewer.png" if Badge.find(my_badge.badge_id).name == "Reviewer" %>
-            <%= image_tag "/badges/experienced.png" if Badge.find(my_badge.badge_id).name == "Experienced Host" %>
-            <%= image_tag "/badges/top_rated.png" if Badge.find(my_badge.badge_id).name == "Top Rated" %>
+            <%= image_tag "badges/reviewer.png" if Badge.find(my_badge.badge_id).name == "Reviewer" %>
+            <%= image_tag "badges/experienced.png" if Badge.find(my_badge.badge_id).name == "Experienced Host" %>
+            <%= image_tag "badges/top_rated.png" if Badge.find(my_badge.badge_id).name == "Top Rated" %>
           <% end %>
         </div>
       <% else %>
         <h4> <%= "#{@user.first_name.capitalize} #{@user.last_name.capitalize}" %> </h4>
         <div class="container-badges">
           <% @user.my_badges.each do |my_badge| %>
-            <%= image_tag "/badges/reviewer.png" if Badge.find(my_badge.badge_id).name == "Reviewer"%>
-            <%= image_tag "/badges/experienced.png" if Badge.find(my_badge.badge_id).name == "Experienced Host"%>
-            <%= image_tag "/badges/top_rated.png" if Badge.find(my_badge.badge_id).name == "Top Rated"%>
+            <%= image_tag "badges/reviewer.png" if Badge.find(my_badge.badge_id).name == "Reviewer"%>
+            <%= image_tag "badges/experienced.png" if Badge.find(my_badge.badge_id).name == "Experienced Host"%>
+            <%= image_tag "badges/top_rated.png" if Badge.find(my_badge.badge_id).name == "Top Rated"%>
           <% end %>
         </div>
         <div class="container-current_skills">
@@ -165,7 +165,7 @@
             <% if current_user.organization? %>
               <%=  link_to "Leave a review", new_user_review_path(application.user), class: 'btn btn-light-green' %>
             <% else %>
-             <%= link_to "Leave a review", new_project_review_path(@project), class: 'btn btn-light-green' %>
+             <%= link_to "Leave a review", new_project_review_path(application.project), class: 'btn btn-light-green' %>
             <% end %>
         </div>
         <% end %>
