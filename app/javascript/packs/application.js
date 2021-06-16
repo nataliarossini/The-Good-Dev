@@ -23,12 +23,15 @@ import { initChatroomCable } from '../channels/chatroom_channel';
 import { openPopupForSkills, openPopupForLanguagess } from '../pages/dashboard.js'
 import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete';
+import { initScrollMessage } from '../channels/chatroom_channel';
+
 
 document.addEventListener('turbolinks:load', () => {
   // Call your JS functions here
   initUpdateNavbarOnScroll();
   initFixedNavbar();
   initChatroomCable();
+  initScrollMessage();
   if (document.querySelector('#add-skill')) {
     openPopupForSkills();
   }

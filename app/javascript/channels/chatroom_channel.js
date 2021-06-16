@@ -15,4 +15,10 @@ const initChatroomCable = () => {
   }
 }
 
-export { initChatroomCable };
+const initScrollMessage = () => {
+  const chatContainer = document.querySelector(".chat-container")
+  if (chatContainer) {
+    chatContainer.scrollTo(0,document.querySelector(".chat-container").scrollHeight);
+  }
+}
+export { initChatroomCable, initScrollMessage };

@@ -2,7 +2,7 @@
   <h1><%= @chatroom.name %></h1>
   <hr>
   <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
-    <% @chatroom.messages.each do |message| %>
+    <% @messages.each do |message| %>
       <div class="message-container" id="message-<%= message.id %>">
           <% if message.user == current_user %>
             <div class="you-container">
@@ -26,11 +26,12 @@
       </div>
     <% end %>
   </div>
-  <div class="message-input">
-    <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
-      <%= f.input :content, label: false, placeholder: "Message # #{@chatroom.name}" %>
-      <%= f.button :submit, "Submit", :class => "btn-light-green mb-3" %>
-    <% end %>
-  </div>
 
 </div>
+<div class="message-input">
+  <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
+    <%= f.input :content, label: false, placeholder: "Message # #{@chatroom.name}" %>
+    <%= f.button :submit, "Submit", :class => "btn-light-green mb-3" %>
+  <% end %>
+</div>
+
