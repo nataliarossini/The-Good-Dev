@@ -25,6 +25,7 @@ class ApplicationsController < ApplicationController
   def respond
     @application = Application.find(params[:application_id])
     @application.update(application_params)
+    # MyBadge.create(user_id: current_user.id, badge_id: Badge.find_by(name: "Experienced Host").id).save if current_user.organization.projects.count == 10 This line is for job-doer badge (see seed file)
     redirect_to dashboard_path
   end
 

@@ -9,8 +9,22 @@
       <% end %>
       <% if @user.organization? %>
         <h4> <%= @user.organization.name %> </h4>
+        <div class="container-badges">
+          <% @user.my_badges.each do |my_badge| %>
+            <%= image_tag "/badges/reviewer.png" if Badge.find(my_badge.badge_id).name == "Reviewer" %>
+            <%= image_tag "/badges/experienced.png" if Badge.find(my_badge.badge_id).name == "Experienced Host" %>
+            <%= image_tag "/badges/top_rated.png" if Badge.find(my_badge.badge_id).name == "Top Rated" %>
+          <% end %>
+        </div>
       <% else %>
         <h4> <%= "#{@user.first_name.capitalize} #{@user.last_name.capitalize}" %> </h4>
+        <div class="container-badges">
+          <% @user.my_badges.each do |my_badge| %>
+            <%= image_tag "/badges/reviewer.png" if Badge.find(my_badge.badge_id).name == "Reviewer"%>
+            <%= image_tag "/badges/experienced.png" if Badge.find(my_badge.badge_id).name == "Experienced Host"%>
+            <%= image_tag "/badges/top_rated.png" if Badge.find(my_badge.badge_id).name == "Top Rated"%>
+          <% end %>
+        </div>
         <div class="container-current_skills">
           <% @user.my_skills.each do |my_skill| %>
             <div class="btn main-btn btn-skill"> <%= my_skill.skill.name %> </div>
@@ -130,26 +144,30 @@
           </div>
 
 
-<%# :url => application_respond_path, :method => :patch %>
-
+<%# Review.exists?(author_id: current_user.organization.id AND user_id: application.user.id) %>
 
 
         <% end %>
         <p><em><%= "Your open applications will be displayed here" unless @applications.select { |e| e.open? }.first %></em></p>
         <h4>Approved</h4>
-        <% @applications.select { |e| e.accepted? }.each do |application| %>
+        <% @applications.select { |e| e.accepted? && Date.today < e.project.end_date }.each do |application| %>
         <div>
           <p><%= "#{application.created_at.strftime("%m/%d/%Y")} - #{application.user.first_name} #{application.user.last_name} for project #{application.project.title}" %> </p>
         </div>
         <% end %>
-        <p><em><%= "Approved applications will be displayed here" unless @applications.select { |e| e.accepted? }.first %></em></p>
+        <p><em><%= "Approved applications will be displayed here" unless @applications.select { |e| e.accepted? && Date.today < e.project.end_date }.first %></em></p>
         <h4>Closed</h4>
-        <% @applications.select { |e| e.declined? }.each do |application| %>
+        <% @applications.select { |e| e.declined? || Date.today >= e.project.end_date }.each do |application| %>
         <div>
-          <p><%= "#{application.created_at.strftime("%m/%d/%Y")} - #{application.user.first_name} #{application.user.last_name} for project #{application.project.title}" %> </p>
+          <p><%= "#{application.created_at.strftime("%m/%d/%Y")} - #{application.user.first_name} #{application.user.last_name} for project #{application.project.title}" %>
+          <%= if current_user.organization?
+                link_to "Leave a review", new_user_review_path(application.user), class: 'btn btn-light-green'
+              else 
+                link_to "Leave a review", new_project_review_path(@project), class: 'btn btn-light-green'
+              end %> </p>
         </div>
         <% end %>
-        <p><em><%= "Closed applications will be displayed here" unless @applications.select { |e| e.declined? }.first %></em></p>
+        <p><em><%= "Closed applications will be displayed here" unless @applications.select { |e| e.declined? || Date.today >= e.project.end_date }.first %></em></p>
       </div>
       <div class="projects">
         <h3>Projects</h3>
