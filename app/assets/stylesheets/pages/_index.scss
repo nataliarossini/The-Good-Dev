@@ -13,6 +13,7 @@
       color: #AAD8D3;
     }
   }
+}
   .container-sidebar {
     flex-shrink: 0;
     width: 360px;
@@ -21,7 +22,6 @@
     top: 0;
     background-color: #AAD8D3;
 
-    
     h4 {
       font-size: 2vh;
       margin: 0px;
@@ -113,7 +113,7 @@
           flex: 0 0 66%;
 
           p {
-            
+
             margin: 0px;
             font-size: 14px;
           }
@@ -121,7 +121,6 @@
       }
     }
   }
-}
 
 .wrap-card {
   position: relative;
