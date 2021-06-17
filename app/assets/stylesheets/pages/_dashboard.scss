@@ -140,7 +140,6 @@
             height: 100%;
             width: 60%;
             padding: 16px;
-            position: relative;
 
             h4 {
               color: #00ADB5;
@@ -150,7 +149,6 @@
 
             a {
               //text-align: right;
-              position: absolute;
               bottom: 16px;
               right: 16px;
               color: #9C9696;
@@ -161,7 +159,7 @@
             }
             .display-flex-proj{
               height: 24px;
-              width: 200px;
+              width: 250px;
               display: flex;
               justify-content: space-between;
             }
