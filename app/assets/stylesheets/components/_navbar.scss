@@ -3,6 +3,8 @@
   background-color: #EEEEEE;
   height: 8vh;
   transition: 0.5s background-color ease;
+  padding-right: 120px;
+  padding-left: 120px;
 }
 .navbar-lewagon-white {
   background-color: white;
@@ -14,6 +16,7 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 156px;
+  // margin-left: 120px;
 }
 .notification-msg {
   text-align: center;

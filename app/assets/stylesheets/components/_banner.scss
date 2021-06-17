@@ -1,15 +1,17 @@
 .banner {
   padding-top: 8vh;
-  background: asset-url('banner.svg') no-repeat right;
+  // background: asset-url('banner.svg') no-repeat right;
   background-color: #EEEEEE;
-  height: 90vh;
+  height: 100vh;
   text-indent: inherit;
+
+
   h1 {
     color: #393E46;
-    font-weight: bolder;
-    padding-top: 48px;
+    font-weight: normal;
+    padding-top: 15%;
     padding-left: 32px;
-    font-size: 3em;
+    font-size: 3.5em;
   }
 
 }
@@ -18,10 +20,8 @@
 }
 
 .sub-banner {
-  background: asset-url('sub-banner2.svg') no-repeat left;
-  background-color: white;
-  background-size: 30%;
-  height: 80vh;
+  // background: asset-url('sub-banner2.svg') no-repeat left;
+  height: 60vh;
   text-align: right;
   h2 {
     color: #393E46;
@@ -33,5 +33,20 @@
     font-weight: lighter;
     font-size: 32px;
     padding-right: 32px;
+  }
+}
+.sub-banner-sml {
+  // background: asset-url('sub-banner2.svg') no-repeat left;
+  height: 35vh;
+  text-align: left;
+  display:flex;
+  h2 {
+    color: #393E46;
+    padding-top: 48px;
+    padding-right: 32px;
+    font-size: 3em;
+  }
+  a {
+    margin-top: 12px;
   }
 }

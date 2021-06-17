@@ -1,6 +1,6 @@
 <div class="home-container">
 
-  <div class="banner">
+  <div class="banner" style="background: url(<%= image_url('banner.svg') %>) no-repeat right;">
     <div class="home-margin">
       <h1>Share your skills, <br> help people,<br> be a volunteer.</h1>
       <div class="banner-btns">
@@ -9,33 +9,49 @@
       </div>
     </div>
   </div>
-  <div class="container-home">
+
+  <div class="sub-banner" style="background-color: white;">
     <div class="home-margin">
-      <h2>About us</h2>
-      <p>We want to connect IT professionals and institutions who are willing to make a lasting change around the world. Together we can make a difference.</p>
-      <h2>How it works</h2>
-      <p>If you are a IT professional you can apply to work as a volunteer. We provide a range of intitutions willing to host you in exchange of your services. </p>
       <div class="d-flex">
         <%= image_tag 'img1.svg', class: 'img-home' %>
+        <div>
+          <h2>About us</h2>
+          <p>We want to connect IT professionals and institutions who are willing to make a lasting change around the world.<br> Together we can make a difference.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="home-margin">
+    <div class="container-home" style="background: url(<%= image_url('') %>) no-repeat right; background-size: 30%; " >
+      <h2>How it works</h2>
+      <div class="d-flex">
+      <p>If you are a IT professional you can apply to work as a volunteer. We provide a range of intitutions willing to host you in exchange of your services. </p>
         <span>1 Join our community</span>
         <span>2 Aplly to a project</span>
         <span>3 Wait for your
-    application approval</span>
+        application approval</span>
         <span>4 Gain experience while working
-     in meaningful projects!</span>
+        in meaningful projects!</span>
       </div>
+      <div class="d-flex">
       <p>If you are a charity institution or a business aiming to work on along with high skilled IT professionals, The Good Dev got your back! You won’t have to worry about your bugdet, all you have to do is to host our amazing professionals who’s willing to help your cause and the community.</p>
-        <div class="d-flex">
-        <span>1 Join our community</span>
-        <span>2 Aplly to a project</span>
-        <span>3 Wait for your application approval</span>
-        <span>4 Gain experience while working in meaningful projects!</span>
-        <%= image_tag 'img2.svg', class: 'img-home' %>
+        <span>1 Register for free</span>
+        <span>2 Share your project</span>
+        <span>3 Connect with professionals</span>
+
+        <%#= image_tag 'img2.svg', class: 'img-home' %>
       </div>
+    </div>
 
     </div>
 
+  <div class="sub-banner-sml" style="background-color: rgba(170, 216, 211, 0.3);">
+    <div class="home-margin">
+      <h2>Post your project and find<br> the volunteers you need</h2>
+      <%= link_to "Post a project", new_project_path, class: "main-btn mt-4" %>
+    </div>
   </div>
+
   <div class="recent-posted">
       <h3>Recently posted</h3>
       <div class="container-cards">
@@ -46,28 +62,31 @@
             <% else %>
               <% photo_source = image_path("project_default_background.jpg") %>
             <% end %>
-            <div class="card-project" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= photo_source %>);">
+            <div class="card-project" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0, 0.7)), url(<%= photo_source %>);">
               <div class="cell">
                 <p><i class="fas fa-map-pin"></i> <%= project.location %> </p>
               </div>
               <div class="cell">
-                <h3> <%= project.title %> </h3>
+                <h4> <%= project.title %> </h4>
                 <p> <%= project.description %> <p>
               </div>
             </div>
           <% end %>
         <% end %>
         <div>
-        <%= link_to 'See more', projects_path %>
+        <%= link_to 'See more', projects_path, class: "btn-filter" %>
         </div>
       </div>
   </div>
-  <div class="sub-banner">
+  <div class="sub-banner" style="background: url(<%= image_url('sub-banner2.svg') %>) no-repeat left; background-size: 50%; background-color: white;">
     <div class="home-margin">
       <h2>Conversations today could lead<br> to opportunity tomorrow</h2>
       <p>Sending messages to people is a great way<br> to build relationships as you take the next step<br> in your career or projects</p>
     </div>
   </div>
+
+
+
   <footer>
     <%= image_tag "logo1.svg" %>
     <div>
