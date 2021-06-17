@@ -6,7 +6,7 @@
 
       <div class="form-inputs">
         <%= f.input :motivation_letter, label: "Your Motivation" %>
-        <%= f.input :resume, as: :file, input_html: { multiple: true } %>
+        <%= f.input :resume, as: :file, input_html: { multiple: true, class: 'd-none'}, label_html: { class: 'upload-file'}, label: 'Upload your resume 📄'  %>
       </div>
       <div class="form-actions">
         <%= f.button :submit, "Submit", :class => "main-btn" %>

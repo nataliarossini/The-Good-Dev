@@ -39,10 +39,9 @@
                 <%= image_tag "default-avt.png" %>
               <% end %>
             </div>
-            <p><%= @project.organization.user.description %></p>
+            <p ><%= @project.organization.user.description %></p>
           </div>
-          <p><%= @project.organization.user.description %></p>
-          <hr>
+
           <% if current_user && @project.organization.user != current_user %>
             <% if @chatroom %>
               <%= link_to "Contact", chatroom_path(@chatroom), class: "main-btn"  %>
