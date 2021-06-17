@@ -47,6 +47,21 @@
   opacity: 0.8;
 }
 
+.btn-transparent{
+  color: #393E46;
+  background-color: rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+  // border: 1px solid #393E46;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: bold;
+  transition: opacity 0.3s ease;
+  &:hover {
+    color: #8b8c89;
+  }
+
+}
+
 .btn-coral {
   color: white;
   background-color: #ff9b85;

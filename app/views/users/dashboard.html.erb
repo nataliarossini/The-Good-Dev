@@ -127,15 +127,33 @@
                     <p><%= cl_image_tag application.resume.key if  application.resume %></p>
                     <div class="accept-decline">
                       <% if current_user.organization? %>
+
+                        <% chatroom = Chatroom.where(user: current_user, recipient: application.user).or(Chatroom.where(user: application.user, recipient: current_user)).first
+%>
+                        <% if chatroom %>
+                          <%= link_to "Contact", chatroom_path(chatroom), class: "btn-transparent"  %>
+                        <% else %>
+                          <%= link_to 'Contact', project_chatrooms_path(application.project), method: :post, class: "btn-transparent"  %>
+                        <% end %>
+
                         <%= simple_form_for (application), :method => :patch do |f| %>
                           <%= hidden_field_tag "application[status]", "accepted" %>
                           <%= f.submit "Accept", class: "btn-light-green" %>
                         <% end %>
 
+
+
+
+
+
                         <%= simple_form_for (application), :method => :patch do |f| %>
                           <%= hidden_field_tag("application[status]", "declined") %>
                           <%= f.submit "Decline", class: "btn-coral" %>
                         <% end %>
+
+
+
+
                       <% end %>
                     </div>
                   </div>
