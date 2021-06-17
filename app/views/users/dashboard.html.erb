@@ -9,26 +9,22 @@
       <% end %>
       <% if @user.organization? %>
         <h4> <%= @user.organization.name %> </h4>
-        <% if @user.my_badges.length > 0 %>
-          <div class="container-badges">
-            <% @user.my_badges.each do |my_badge| %>
-              <%= image_tag "badges/reviewer.png" if Badge.find(my_badge.badge_id).name == "Reviewer" %>
-              <%= image_tag "badges/experienced.png" if Badge.find(my_badge.badge_id).name == "Experienced Host" %>
-              <%= image_tag "badges/top_rated.png" if Badge.find(my_badge.badge_id).name == "Top Rated" %>
-            <% end %>
-          </div>
-        <% end %>
+        <div class="container-badges">
+          <% @user.my_badges.each do |my_badge| %>
+            <%= image_tag "badges/reviewer.png" if Badge.find(my_badge.badge_id).name == "Reviewer" %>
+            <%= image_tag "badges/experienced.png" if Badge.find(my_badge.badge_id).name == "Experienced Host" %>
+            <%= image_tag "badges/top_rated.png" if Badge.find(my_badge.badge_id).name == "Top Rated" %>
+          <% end %>
+        </div>
       <% else %>
         <h4> <%= "#{@user.first_name.capitalize} #{@user.last_name.capitalize}" %> </h4>
-        <% if @user.my_badges.length > 0 %>
-          <div class="container-badges">
-            <% @user.my_badges.each do |my_badge| %>
-              <%= image_tag "badges/reviewer.png" if Badge.find(my_badge.badge_id).name == "Reviewer"%>
-              <%= image_tag "badges/experienced.png" if Badge.find(my_badge.badge_id).name == "Experienced Host"%>
-              <%= image_tag "badges/top_rated.png" if Badge.find(my_badge.badge_id).name == "Top Rated"%>
-            <% end %>
-          </div>
-        <% end %>
+        <div class="container-badges">
+          <% @user.my_badges.each do |my_badge| %>
+            <%= image_tag "badges/reviewer.png" if Badge.find(my_badge.badge_id).name == "Reviewer"%>
+            <%= image_tag "badges/experienced.png" if Badge.find(my_badge.badge_id).name == "Experienced Host"%>
+            <%= image_tag "badges/top_rated.png" if Badge.find(my_badge.badge_id).name == "Top Rated"%>
+          <% end %>
+        </div>
         <div class="container-current_skills">
           <% @user.my_skills.each do |my_skill| %>
             <div class="btn main-btn btn-skill"> <%= my_skill.skill.name %> </div>
@@ -147,8 +143,13 @@
               </div>
             </div>
           </div>
+
+
+<%# Review.exists?(author_id: current_user.organization.id AND user_id: application.user.id) %>
+
+
         <% end %>
-        <p><em><%= "Open applications will be displayed here" unless @applications.select { |e| e.open? }.first %></em></p>
+        <p><em><%= "Your open applications will be displayed here" unless @applications.select { |e| e.open? }.first %></em></p>
         <h4>Approved</h4>
         <% @applications.select { |e| e.accepted? && Date.today < e.project.end_date }.each do |application| %>
         <div>
@@ -158,18 +159,15 @@
         <p><em><%= "Approved applications will be displayed here" unless @applications.select { |e| e.accepted? && Date.today < e.project.end_date }.first %></em></p>
         <h4>Closed</h4>
         <% @applications.select { |e| e.declined? || Date.today >= e.project.end_date }.each do |application| %>
-          <div>
+        <div>
+
             <p><%= "#{application.created_at.strftime("%m/%d/%Y")} - #{application.user.first_name} #{application.user.last_name} for project #{application.project.title}" %>
             <% if current_user.organization? %>
-              <% if Review.where("author_id = ? AND user_id = ?", current_user.organization.id, application.user.id).count < @applications.select { |e| e.declined? || Date.today >= e.project.end_date }.count %>
-                <%= link_to "Leave a review", new_user_review_path(application.user), class: 'btn btn-light-green' %>
-              <% end%>
+              <%=  link_to "Leave a review", new_user_review_path(application.user), class: 'btn btn-light-green' %>
             <% else %>
-              <% if Review.where("author_id = ? AND organization_id = ?", current_user.id, application.project.organization.id).count < @applications.select { |e| e.declined? || Date.today >= e.project.end_date }.count %>
-                <%= link_to "Leave a review", new_project_review_path(application.project), class: 'btn btn-light-green' %>
-              <% end %>
+             <%= link_to "Leave a review", new_project_review_path(application.project), class: 'btn btn-light-green' %>
             <% end %>
-          </div>
+        </div>
         <% end %>
         <p><em><%= "Closed applications will be displayed here" unless @applications.select { |e| e.declined? || Date.today >= e.project.end_date }.first %></em></p>
       </div>
@@ -181,17 +179,17 @@
             <div class="project-info">
               <h4><%= project.title %> </h4>
               <p><%= project.description %><p>
-              <div class="display-flex-proj">
+              <div class="display-flex-proj mr-1">
                 <%= link_to "See the Project", project_path(project)  %>
-              </div>
-                <div>
+                <div class="mr-1">
                   <%= link_to edit_project_path(project) do %>
-                    <i class="fas fa-trash-alt"></i>
-                  <% end %>
-                  <%= link_to project_path(project), method: :delete do %>
                     <i class="fas fa-edit"></i>
                   <% end %>
+                  <%= link_to project_path(project), method: :delete do %>
+                    <i class="fas fa-trash-alt"></i>
+                  <% end %>
                 </div>
+              </div>
             </div>
           </div>
         <% end %>
