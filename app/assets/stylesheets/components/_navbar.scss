@@ -31,3 +31,7 @@
 .messages {
   display: inline-flex;
 }
+.dropdown-toggle::after {
+    display: none;
+  }
+

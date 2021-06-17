@@ -15,7 +15,8 @@
                 :as => :radio_buttons, 
                 :collection => [['Yes', true],['No', false]], 
                 :label => "Remote" %>
-    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true, class: 'hidden', id: 'photo-input'}, label_html: { class: 'upload-file'}, label: 'Upload photos 📸'  %>
+    <%= image_tag "", width: 300, class: "hidden prev-photo", id: "photo-preview" %>
   </div>
   <div class="form-actions">
     <%= f.button :submit, current_page?(action: 'new') ? "Create Project" : "Edit Project", class: "main-btn" %>

@@ -40,7 +40,7 @@
       }
       
       .button-cancel {
-        background-color: #e63946;
+        background-color: transparent;
         color: #001219;
         font-style: normal;
         margin: 20px;
@@ -49,11 +49,28 @@
         opacity: 0.9;
   
         &:hover {
-          text-decoration: none;
+          text-decoration: underline;
           color: #001219;
           opacity: 1;
         }
       }
     }
   }
+}
+.upload-file {
+  color: #393E46;
+  border: 1px solid #393E46;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-weight: 500;
+  background: transparent;
+  border-radius: 20px;
+  font-style: normal;
+}
+.prev-photo {
+  height: 64px;
+  width: auto;
+}
+.hidden {
+  display: none;
 }

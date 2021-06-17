@@ -19,7 +19,7 @@
       margin: 4px;
     }
     .btn-language {
-      background-color: #f4a261;
+      background-color: transparent;
     }
   }
 
@@ -47,7 +47,11 @@
   }
 
   .btn-language {
-    background-color: #f4a261;
+    border: 1px solid #393E46;
+    background-color: transparent;
+    &:hover {
+      color: rgba(0, 0, 0, 0.5);
+    }
   }
 }
 

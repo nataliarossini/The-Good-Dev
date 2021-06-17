@@ -24,6 +24,7 @@ import { openPopupForSkills, openPopupForLanguagess } from '../pages/dashboard.j
 import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { initScrollMessage } from '../channels/chatroom_channel';
+import { previewImageOnFileSelect } from '../components/photo_preview';
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -41,7 +42,9 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   // openPopup();
   initAutocomplete();
+  previewImageOnFileSelect();
 });
+
 
 // External imports
 import "bootstrap";

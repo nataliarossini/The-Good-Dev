@@ -5,7 +5,7 @@
       <h1>Share your skills, <br> help people,<br> be a volunteer.</h1>
       <div class="banner-btns">
       <%= link_to 'See Projects', projects_path, class: 'main-btn' %>
-      <%= link_to 'Learn More' , root_path, class: 'border-btn' %>
+      <a href="#about" class="border-btn">Learn More</a>
       </div>
     </div>
   </div>
@@ -15,7 +15,7 @@
       <div class="d-flex">
         <%= image_tag 'img1.svg', class: 'img-home' %>
         <div>
-          <h2>About us</h2>
+          <h2 id="about">About us</h2>
           <p>We want to connect IT professionals and institutions who are willing to make a lasting change around the world.<br> Together we can make a difference.</p>
         </div>
       </div>
