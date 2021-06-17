@@ -25,6 +25,7 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { initScrollMessage } from '../channels/chatroom_channel';
 import { previewImageOnFileSelect } from '../components/photo_preview';
+import { initStarRating } from '../plugins/init_star_rating';
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -44,6 +45,7 @@ document.addEventListener('turbolinks:load', () => {
   // openPopup();
   initAutocomplete();
   previewImageOnFileSelect();
+  initStarRating();
 });
 
 

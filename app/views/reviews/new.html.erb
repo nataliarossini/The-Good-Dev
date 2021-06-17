@@ -6,7 +6,8 @@
         <div class="division">
           <%= f.input :content, label: 'Share your thoughts' %>
         </div>
-          <%= f.select :rating, 0..5, label: 'Rate' %><br>
+          <%= f.label "Rate your experience:" %>
+          <%= f.select :rating, 1..5, label: 'Rate', include_blank: true %><br>
 
         <div class="form-actions">
           <%= f.button :submit, "Submit your review", class: "main-btn" %>

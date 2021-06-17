@@ -92,7 +92,7 @@
                   <%= link_to "Apply", new_project_application_path(@project), class: 'btn btn-light-green mt-3' %>
                 <% else %>
                   <% if Date.today >= @project.end_date %>
-                    <%= link_to "Leave a review", new_project_review_path(@project), class: 'btn btn-light-green' %>
+                    <%= link_to "Leave a review", new_project_review_path(@project), class: 'btn btn-light-green mt-3' %>
                   <% end %>
                 <% end %>
               <% end %>
