@@ -26,22 +26,28 @@
       }
 
       h4 {
-        border-bottom: 2px solid #E5E5E5;
         margin: 8px;
-        padding-bottom: 8px;
+        //padding-bottom: 8px;
       }
 
       .container-badges {
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: 16px;
+        margin: 8px 0px;
+        padding-bottom: 8px;
+        border-bottom: 2px solid #E5E5E5;
 
         img {
           width: 40px;
           height: 40px;
           margin: 0;
         }
+      }
+
+      a {
+        margin: 8px;
+        padding-bottom: 8px;
       }
 
       .capsule {
@@ -76,7 +82,7 @@
         }
 
         p {
-          margin: 0px;
+          margin: 2px;
         }
 
         .letter{
@@ -111,6 +117,10 @@
           display: flex;
           justify-content: space-around;
         }
+        .btn-review {
+          padding: 1px 8px;
+          margin: 2px 8px;
+        }
       }
       .projects {
         margin-top: 32px;
@@ -140,12 +150,22 @@
             height: 100%;
             width: 60%;
             padding: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: space-between;
 
             h4 {
               color: #00ADB5;
               font-weight: bold;
             }
-
+            .links {
+              align-self: flex-end;
+              justify-self: flex-end;
+              a{
+                margin-left: 8px;
+              }
+            }
 
             a {
               //text-align: right;
@@ -253,6 +273,9 @@
 }
 
 .saved-items {
+  border-bottom: 2px solid #E5E5E5;
+  border-top: 2px solid #E5E5E5;
+  margin-top: 8px;
   h4 {
     color: #3F3D56;
     i{
