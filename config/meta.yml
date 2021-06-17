@@ -2,4 +2,6 @@ meta_product_name: "The Good Dev"
 meta_title: "The Good Dev - Share your, skills,help people, be a volunteer."
 meta_description: "Connect with organizations and share your technical skills to make a lasting change anywhere the world"
 meta_image: "cover.png" # should exist in `app/assets/images/`
+meta_url: "http://thegooddev.co.uk"
+meta_type: "website"
 #twitter_account: "@product_twitter_account"   # required for Twitter Cards
