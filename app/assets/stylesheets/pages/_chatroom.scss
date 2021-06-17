@@ -1,11 +1,21 @@
 .chat-container {
   width: 800px;
-  height: 70vh;
+  height: 60vh;
+  margin:auto;
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 16px;
+  overflow: scroll;
+  h1{
+    color: #3F3D56;
+  }
+}
+.fixed-header {
+  width: 800px;
+  height: 20vh;
   margin:auto;
   margin-top: 12px;
   background-color: rgba(0, 0, 0, 0.05);
   padding: 16px;
-  overflow: scroll;
   h1{
     color: #3F3D56;
   }
@@ -31,10 +41,8 @@
 }
 .message-input{
   width: 800px;
-  height: 30vh;
+  height: 15vh;
   margin:auto;
   overflow: inherit;
-  .form-control {
-    width: 95%;
-  }
+  background-color: rgba(0, 0, 0, 0.1);
 }

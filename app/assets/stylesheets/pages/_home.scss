@@ -1,19 +1,30 @@
 // Specific CSS for your home-page
 .container-home {
+  // display: flex;
+  // flex-wrap: wrap;
   h2 {
     color:#9C9696;
     text-align: center;
     padding: 32px;
-    font-size: 40px;
+    font-size: 48px;
   }
   p {
     font-weight: lighter;
     font-size: 28px;
   }
+  span {
+    border-radius: 4px;
+    background-color: white;
+    padding: 12px;
+    margin: 8px;
+    height: 112px;
+    width: auto;
+  }
 }
 
 .img-home {
-  height: 280px;
+  margin-top: 72px;
+  height: 40vh;
 }
 
 .home-margin {
@@ -26,6 +37,9 @@
   padding: 48px;
     h3 {
     color: #9C9696;
+  }
+  h4 {
+    text-shadow: 0 0 15px rgba(0,0,0,0.4);
   }
 }
 footer {
