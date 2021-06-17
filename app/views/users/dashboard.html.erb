@@ -11,18 +11,49 @@
         <h4> <%= @user.organization.name %> </h4>
         <div class="container-badges">
           <% @user.my_badges.each do |my_badge| %>
-            <%= image_tag "badges/reviewer.png" if Badge.find(my_badge.badge_id).name == "Reviewer" %>
-            <%= image_tag "badges/experienced.png" if Badge.find(my_badge.badge_id).name == "Experienced Host" %>
-            <%= image_tag "badges/top_rated.png" if Badge.find(my_badge.badge_id).name == "Top Rated" %>
+            <% if Badge.find(my_badge.badge_id).name == "Reviewer" %>
+              <div id="reviewer">
+                <%= image_tag "badges/reviewer.png" %>
+                <p id="reviewer-js"> Reviewer </p>
+              </div>
+            <% end %>
+            <% if Badge.find(my_badge.badge_id).name == "Experienced Host" %>
+              <div id="experienced">
+                <%= image_tag "badges/experienced.png" %>
+                <p id="experienced-js"> Experienced Host</p>
+              </div>
+            <% end %>
+            <% if Badge.find(my_badge.badge_id).name == "Top Rated" %>
+              <div id="top_rated">
+                <%= image_tag "badges/top_rated.png" if Badge.find(my_badge.badge_id).name == "Top Rated" %>
+                <p id="top_rated-js"> Top Rated </p>
+              </div>
+            <% end %>
           <% end %>
         </div>
+        
       <% else %>
         <h4> <%= "#{@user.first_name.capitalize} #{@user.last_name.capitalize}" %> </h4>
         <div class="container-badges">
           <% @user.my_badges.each do |my_badge| %>
-            <%= image_tag "badges/reviewer.png" if Badge.find(my_badge.badge_id).name == "Reviewer"%>
-            <%= image_tag "badges/experienced.png" if Badge.find(my_badge.badge_id).name == "Experienced Host"%>
-            <%= image_tag "badges/top_rated.png" if Badge.find(my_badge.badge_id).name == "Top Rated"%>
+            <% if Badge.find(my_badge.badge_id).name == "Reviewer" %>
+              <div id="reviewer">
+                <%= image_tag "badges/reviewer.png" %>
+                <p id="reviewer-js"> Reviewer </p>
+              </div>
+            <% end %>
+            <% if Badge.find(my_badge.badge_id).name == "Experienced Host" %>
+              <div id="experienced">
+                <%= image_tag "badges/experienced.png" %>
+                <p id="experienced-js"> Experienced Host</p>
+              </div>
+            <% end %>
+            <% if Badge.find(my_badge.badge_id).name == "Top Rated" %>
+              <div id="top_rated">
+                <%= image_tag "badges/top_rated.png" if Badge.find(my_badge.badge_id).name == "Top Rated" %>
+                <p id="top_rated-js"> Top Rated </p>
+              </div>
+            <% end %>
           <% end %>
         </div>
         <div class="container-current_skills">
