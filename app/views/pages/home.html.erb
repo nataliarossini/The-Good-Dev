@@ -5,7 +5,7 @@
       <h1>Share your skills, <br> help people,<br> be a volunteer.</h1>
       <div class="banner-btns">
       <%= link_to 'See Projects', projects_path, class: 'main-btn' %>
-      <%= link_to 'Learn More' , root_path, class: 'border-btn' %>
+      <a href="#about" class="border-btn">Learn More</a>
       </div>
     </div>
   </div>
@@ -13,9 +13,9 @@
   <div class="sub-banner" style="background-color: white;">
     <div class="home-margin">
       <div class="d-flex">
-        <%= image_tag 'img1.svg', class: 'img-home' %>
+        <%= image_tag 'worldmap.svg', class: 'img-home' %>
         <div>
-          <h2>About us</h2>
+          <h2 id="about">About us</h2>
           <p>We want to connect IT professionals and institutions who are willing to make a lasting change around the world.<br> Together we can make a difference.</p>
         </div>
       </div>
@@ -24,27 +24,29 @@
   <div class="home-margin">
     <div class="container-home" style="background: url(<%= image_url('') %>) no-repeat right; background-size: 30%; " >
       <h2>How it works</h2>
-      <div class="d-flex">
-      <p>If you are a IT professional you can apply to work as a volunteer. We provide a range of intitutions willing to host you in exchange of your services. </p>
-        <span>1 Join our community</span>
-        <span>2 Aplly to a project</span>
-        <span>3 Wait for your
-        application approval</span>
-        <span>4 Gain experience while working
-        in meaningful projects!</span>
+      <div class="container-howitworks">
+        <p>If you are a IT professional you can apply to work as a volunteer. We provide a range of intitutions willing to host you in exchange of your services. </p>
+        <div class="capsule">
+          <div id="center-image"> <%= image_tag 'img1.svg' %>
+            <div class="step" id="step1"> <h1> 1 </h1> <p>Join our community</p> </div>
+            <div class="step" id="step2"> <h1> 2 </h1> <p>Apply to work on a project</p></div>
+            <div class="step" id="step3"> <h1> 3 </h1> <p>Wait for your application approval</p> </div>
+            <div class="step" id="step4"> <h1> 4 </h1> <p>Gain experience while working in meaningful projects!</p> </div>
+          </div>
+        </div>
       </div>
-      <div class="d-flex">
-      <p>If you are a charity institution or a business aiming to work on along with high skilled IT professionals, The Good Dev got your back! You won’t have to worry about your bugdet, all you have to do is to host our amazing professionals who’s willing to help your cause and the community.</p>
-        <span>1 Register for free</span>
-        <span>2 Share your project</span>
-        <span>3 Connect with professionals</span>
-
-        <%#= image_tag 'img2.svg', class: 'img-home' %>
+      <div class="container-howitworks">
+        <p>If you are a charity institution or a business aiming to work on along with high skilled IT professionals, The Good Dev got your back! You won’t have to worry about your bugdet, all you have to do is to host our amazing professionals who’s willing to help your cause and the community.</p>
+        <div class="capsule">
+          <div id="center-image"> <%= image_tag 'img2.svg' %>
+            <div class="step" id="step1"> <h1> 1 </h1> <p>Register for free</p> </div>
+            <div class="step" id="step2"> <h1> 2 </h1> <p>Share your project with our community</p></div>
+            <div class="step" id="step3"> <h1> 3 </h1> <p>Connect with the professionals you need</p> </div>
+          </div>
+        </div>
       </div>
     </div>
-
-    </div>
-
+  </div>
   <div class="sub-banner-sml" style="background-color: rgba(170, 216, 211, 0.3);">
     <div class="home-margin">
       <h2>Post your project and find<br> the volunteers you need</h2>

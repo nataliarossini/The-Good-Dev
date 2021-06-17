@@ -14,8 +14,12 @@
   padding: 16px 24px;
   border-radius: 24px;
   border: 1px solid #AAD8D3;
-  color: #AAD8D3;
+  color: rgba(0, 173, 181, 1);
   font-weight: 300;
+  transition: 0.3s;
+  &:hover {
+    color: #8b8c89;
+  }
 }
 
 .back-btn{
@@ -41,6 +45,21 @@
 .btn-light-green:hover {
   color: white;
   opacity: 0.8;
+}
+
+.btn-transparent{
+  color: #393E46;
+  background-color: rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+  // border: 1px solid #393E46;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: bold;
+  transition: opacity 0.3s ease;
+  &:hover {
+    color: #8b8c89;
+  }
+
 }
 
 .btn-coral {
