@@ -20,7 +20,7 @@ ActiveStorage.start()
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 import { initFixedNavbar } from '../components/navbar';
 import { initChatroomCable } from '../channels/chatroom_channel';
-import { openPopupForSkills, openPopupForLanguagess } from '../pages/dashboard.js'
+import { openPopupForSkills, openPopupForLanguagess, badgeHoverOverEffect } from '../pages/dashboard.js'
 import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { initScrollMessage } from '../channels/chatroom_channel';
@@ -40,6 +40,7 @@ document.addEventListener('turbolinks:load', () => {
   if (document.querySelector('#add-language')) {
     openPopupForLanguagess();
   }
+  badgeHoverOverEffect();
   initMapbox();
   // openPopup();
   initAutocomplete();

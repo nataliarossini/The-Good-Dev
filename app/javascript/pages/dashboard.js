@@ -37,5 +37,43 @@ const openPopupForLanguagess = () => {
   });
 }
 
+const badgeHoverOverEffect = () => {
+  if (document.querySelector('#reviewer')) {
+    const reviewer = document.querySelector('#reviewer');
+    reviewer.addEventListener('mouseover', (event) => {
+      const descr = document.querySelector('#reviewer-js');
+      descr.style.display = "inline";
+    });
+    reviewer.addEventListener('mouseout', (event) => {
+      const descr = document.querySelector('#reviewer-js');
+      descr.style.display = "none";
+    });
+  }
 
-export { openPopupForSkills, openPopupForLanguagess };
+  if (document.querySelector('#experienced')) {
+    const experienced = document.querySelector('#experienced');
+    experienced.addEventListener('mouseover', (event) => {
+      const descr = document.querySelector('#experienced-js');
+      descr.style.display = "inline";
+    });
+    experienced.addEventListener('mouseout', (event) => {
+      const descr = document.querySelector('#experienced-js');
+      descr.style.display = "none";
+    });
+  }
+
+  if (document.querySelector('#top_rated')) {
+    const top_rated = document.querySelector('#top_rated');
+    top_rated.addEventListener('mouseover', (event) => {
+      const descr = document.querySelector('#top_rated-js');
+      descr.style.display = "inline";
+    });
+    top_rated.addEventListener('mouseout', (event) => {
+      const descr = document.querySelector('#top_rated-js');
+      descr.style.display = "none";
+    });
+  }
+}
+
+
+export { openPopupForSkills, openPopupForLanguagess, badgeHoverOverEffect };
