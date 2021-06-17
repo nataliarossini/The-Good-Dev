@@ -16,7 +16,7 @@
 }
   .container-sidebar {
     flex-shrink: 0;
-    width: 360px;
+    width: 380px;
     height: 92vh;
     position: sticky;
     top: 0;
@@ -30,29 +30,33 @@
     }
 
     .container-news {
-      height: 52vh;
+      height: 43vh;
       margin: 2vh;
       // padding-top: 6px;
       background-color: white;
       box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
       .card-news {
-        height: 13.5vh;
+        height: 12.5vh;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        // border-bottom: 1px solid #E5E5E5;
+        border-bottom: 1px solid #E5E5E5;
         overflow:hidden;
         overflow-wrap: break-word;
+        padding: 8px;
           img {
-            height: 12.5vh;
-            width:30%;
+            height: 100%;
+            width: 40%;
             object-fit: cover;
             padding: 0px;
+            margin-right: 4px;;
           }
 
         .news-content {
-            word-break: break-all;
-            padding-right: 16px;
+            //word-break: break-all;
+            //padding-right: 16px;
+            max-width: 60%;
+            margin-right: 8px;
             flex: 0 0 66%;
             h4 {
               border-bottom: none;
