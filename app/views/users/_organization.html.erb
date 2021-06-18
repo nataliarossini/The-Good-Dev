@@ -8,12 +8,10 @@
           <p><%= @user.user_type %></p>
           <div class="d-flex justify-content-center">
             <% Review.where("organization_id = ? AND author_id != ?", @organization.id, @organization.id).average(:rating)&.to_i&.times do %>
-              <i class="fas fa-star"></i>
+              <span class="full-star">★</span>
             <% end %>
-
           </div>
-
-
+              <p class="rev-count">(<%= Review.where("organization_id = ? AND author_id != ?", @organization.id, @organization.id).count %>)</p>
         </div>
       </div>
         <div class="profile-bar-content">

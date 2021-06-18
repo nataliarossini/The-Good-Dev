@@ -133,9 +133,17 @@ footer {
   padding: 12px;
   text-align-last: left;
   list-style-type: none;
-  display: flex;
-  justify-content: space-around;
+  // display: flex;
+  // justify-content: space-around;
   background-color: rgba(156, 150, 150, 0.3);
   height: 50vh;
   text-align: right;
 }
+
+.credit{
+    background-color: rgba(0, 0, 0, 1);
+    margin: auto;
+    padding: 12px;
+    color: white;
+    font-family: 'Ubuntu', sans-serif;
+  }
