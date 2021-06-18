@@ -90,6 +90,8 @@
 
 
   <footer>
+    <div class="d-flex justify-content-around">
+
     <%= image_tag "logo1.svg" %>
     <div>
       <h3>General</h3>
@@ -99,7 +101,7 @@
       <li><a href="#">Press</a></li>
       <li><a href="#">Blog</a></li>
       <li><a href="#">Careers</a></li>
-      <li><a href="#">Developers</a></li>
+      <%= link_to "Developers", developers_path  %>
     </div>
     <div>
       <h3>Browse</h3>
@@ -119,6 +121,8 @@
       <li><a href="#">Feedbacks</a></li>
       <li><a href="#">Schools</a></li>
     </div>
+    </div>
   </footer>
+    <p class="credit"> <i class="fas fa-terminal"></i>   The-Good-Dev git:(team) ✗ Natalia, Ozul & Emma  </p>
 </div>
 
