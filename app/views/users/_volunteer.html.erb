@@ -95,8 +95,8 @@
                     <em>"<%= review.content.capitalize %>"</em>
                     <%= link_to reviewer.organization? ?  reviewer.organization.name : "#{reviewer.first_name.capitalize}", user_path(reviewer) %>
                   </div>
+                </div>
               <% end %>
-              </div>
             <% end %>
             <hr>
           </div>
