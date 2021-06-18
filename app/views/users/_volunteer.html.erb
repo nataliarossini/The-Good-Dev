@@ -6,6 +6,36 @@
         <div class="profile-header">
           <h2><%= "#{@user.first_name.capitalize} #{@user.last_name.capitalize}" %></h2>
           <p><%= @user.user_type %></p>
+          <div class="d-flex justify-content-center align-items-center">
+            <% Review.where("user_id = ? AND author_id != ?", @user.id, @user.id).average(:rating)&.to_i&.times do %>
+              <span class="full-star">★</span>
+            <% end %>
+            <% if Review.where("user_id = ? AND author_id != ?", @user.id, @user.id).count > 0 %>
+              <span class="rev-count">(<%= Review.where("user_id = ? AND author_id != ?", @user.id, @user.id).count %>)</span>
+            <% end %>
+          </div>
+          <div class="container-badges">
+            <% @user.my_badges.each do |my_badge| %>
+              <% if Badge.find(my_badge.badge_id).name == "Reviewer" %>
+                <div id="reviewer">
+                  <%= image_tag "badges/reviewer.png" %>
+                  <p id="reviewer-js"> Reviewer </p>
+                </div>
+              <% end %>
+              <% if Badge.find(my_badge.badge_id).name == "Experienced Host" %>
+                <div id="experienced">
+                  <%= image_tag "badges/experienced.png" %>
+                  <p id="experienced-js"> Experienced Host</p>
+                </div>
+              <% end %>
+              <% if Badge.find(my_badge.badge_id).name == "Top Rated" %>
+                <div id="top_rated">
+                  <%= image_tag "badges/top_rated.png" if Badge.find(my_badge.badge_id).name == "Top Rated" %>
+                  <p id="top_rated-js"> Top Rated </p>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
           <% #@organization.reviews.each %>
         </div>
       </div>
