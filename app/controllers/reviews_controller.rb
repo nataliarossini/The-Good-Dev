@@ -30,9 +30,9 @@ class ReviewsController < ApplicationController
         MyBadge.create(user_id: current_user.id, badge_id: Badge.find_by(name: "Reviewer").id).save if current_user.reviews.count == 10 # This line is for reviewer badge (see seed file)
         @project = Project.find(params[:project_id])
         if Review.where("organization_id = ? AND author_id != ?", @project.organization.id, @project.organization.id).count >= 3 && Review.where("organization_id = ? AND author_id != ?", @project.organization.id, @project.organization.id).average(:rating) > 4.5
-          MyBadge.create(user_id: @project.organization.user.id, badge_id: Badge.find_by(name: "Top Rated").id).save! # This line is for Top Host badge (see seed file)
+          MyBadge.create(user_id: @project.organization.user.id, badge_id: Badge.find_by(name: "Top Rated").id).save! if  MyBadge.where("user_id = ? AND badge_id = ?", @project.organization.user.id, Badge.find_by(name: "Top Rated").id).length == 0 # This line is for Top Host badge (see seed file)
         else
-          if MyBadge.where("user_id = ? AND badge_id = ?", @project.organization.user.id, Badge.find_by(name: "Top Rated").id).first
+          if MyBadge.where("user_id = ? AND badge_id = ?", @project.organization.user.id, Badge.find_by(name: "Top Rated").id)&.first
             MyBadge.where("user_id = ? AND badge_id = ?", @project.organization.user.id, Badge.find_by(name: "Top Rated").id).first.destroy # This line is for Top Host badge (see seed file)
           end
         end
