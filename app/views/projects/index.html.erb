@@ -83,7 +83,7 @@
               <p> <%# reviewer.organization? ?  "Host" : "Volunteer" %> </p>
           </div>
           <div class="review-content">
-            <p><em>"<%= review.content %>"</em></p>
+            <p><em>"<%= review.content.truncate(80) %>"</em></p>
           </div>
         </div>
       <% end %>
