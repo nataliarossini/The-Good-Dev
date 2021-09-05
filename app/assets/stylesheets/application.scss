@@ -42,6 +42,33 @@ a:hover {
   .container-cards {
     grid-template-columns: 1fr 1fr;
   }
+  .banner {
+    flex-direction: column;
+    justify-content: unset;
+    height: fit-content;
+    // h1 {
+    //   margin: 0 24px;
+    // }
+    img {
+      height: 30vh;
+      align-self: center;
+    }
+  }
+  .home-margin {
+    flex-direction: column-reverse;
+    // margin: 0;
+    // padding: 24px;
+  }
+  .sub-banner {
+    // font-size: small;
+    min-height: 70vh;
+    img {
+      height: 30vh;
+    }
+  }
+  .container-home .container-howitworks .capsule #center-image img {
+    height: 80%;
+  }
 }
 
 @media (max-width: 992px) {
@@ -51,12 +78,132 @@ a:hover {
 }
 
 @media (max-width: 768px) {
+  body {
+    font-size: smaller;
+    p {
+      font-size: 1.5rem;
+    }
+  }
   .container-cards {
     grid-template-columns: 1fr;
   }
   .container-sidebar {
     display: none;
   }
+  .home-margin {
+    margin: 24px;
+    h1 {
+      font-size: 48px;
+      padding: 15% 0;
+      // padding-left: 0;
+    }
+  }
+  .banner-btns {
+    margin: 24px;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+
+    .main-btn {
+      margin-bottom: 8px;
+    }
+  }
+  .banner {
+    height: fit-content;
+    h1 {
+      font-size: 2rem;
+      margin: 0 24px;
+    }
+    img {
+      height: 280px;
+      align-self: center;
+    }
+  }
+  .sub-banner {
+    font-size: small;
+    height: fit-content;
+    p {
+      font-size: 1.5rem;
+    }
+    img {
+        height: 25vh;
+    }
+  }
+
+  .sub-banner-sml {
+    display: none;
+  }
+
+  .home-margin {
+    flex-direction: column-reverse;
+    margin: 0;
+    padding: 24px;
+  }
+
+  .container-home {
+    h2 {
+      font-size: 2rem;
+    }
+    .container-howitworks{
+      margin-bottom: 48px;
+      p {
+      font-size: 1.5rem;
+      }
+      .capsule {
+        height: 80vh;
+        margin-bottom: 16px;
+      }
+      .capsule #center-image {
+        img {
+          height: 50%; 
+        }
+        #step1 {
+          position: initial;
+        }
+        #step2 {
+          position: initial;
+        }
+        #step3 {
+          position: initial;
+        }
+        #step4 {
+          position: initial;
+        }
+        .step h1 {
+          font-size: 24px;
+        }
+      }
+    }    
+  }
+  #pre-footer {
+    display: none;
+  }
+  .recent-posted {
+    display: none;
+  }
+  .footer-wrap {
+    flex-direction: column;
+  }
+  .credit {
+    font-size: 12px;
+  }
+  .navbar {
+    height: auto;
+  }
+  .nav-item{
+    font-size: 16px;
+    right: 0;
+    text-align: center;
+    padding: 24px;
+    margin: 16px;
+    color: #393e46;
+    .main-btn {
+      all: unset;
+    }
+    .border-btn {
+      all:unset;
+    }
+  } 
 }
 
 @media (max-width: 576px) {
