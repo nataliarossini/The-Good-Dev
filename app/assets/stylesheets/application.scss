@@ -196,12 +196,6 @@ a:hover {
   .container-cards {
     grid-template-columns: 1fr;
   }
-}
-
-@media (max-width: 100px) and (max-width: 575px) {
-  .container-cards {
-    grid-template-columns: 1fr;
-  }
   .nav-item{
     font-size: 16px;
     right: 0;
@@ -215,5 +209,12 @@ a:hover {
     .border-btn {
       all:unset;
     }
+  } 
+  
+}
+
+@media (max-width: 100px) and (max-width: 575px) {
+  .container-cards {
+    grid-template-columns: 1fr;
   } 
 }
