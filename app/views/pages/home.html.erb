@@ -1,24 +1,25 @@
 <div class="home-container">
 
-  <div class="banner" style="background: url(<%= image_url('banner.svg') %>) no-repeat right;">
-    <div class="home-margin">
+  <div class="banner" >
+    <div>
       <h1>Share your skills, <br> help people,<br> be a volunteer.</h1>
       <div class="banner-btns">
-      <%= link_to 'See Projects', projects_path, class: 'main-btn' %>
-      <a href="#about" class="border-btn">Learn More</a>
+        <%= link_to 'See Projects', projects_path, class: 'main-btn' %>
+        <a href="#about" class="border-btn">Learn More</a>
       </div>
     </div>
+      <%= image_tag 'banner.svg' %>
   </div>
 
   <div class="sub-banner" style="background-color: white;">
     <div class="home-margin">
-      <div class="d-flex">
+      <%# <div class="d-flex"> %>
         <%= image_tag 'worldmap.svg', class: 'img-home' %>
-        <div>
+        <div class="sub-wrap">
           <h2 id="about">About us</h2>
           <p>We want to connect IT professionals and institutions who are willing to make a lasting change around the world.<br> Together we can make a difference.</p>
         </div>
-      </div>
+      <%# </div> %>
     </div>
   </div>
   <div class="home-margin">
@@ -49,8 +50,10 @@
   </div>
   <div class="sub-banner-sml" style="background-color: rgba(170, 216, 211, 0.3);">
     <div class="home-margin">
-      <h2>Post your project and find<br> the volunteers you need</h2>
-      <%= link_to "Post a project", new_project_path, class: "main-btn" %>
+      <div>
+        <h2>Post your project and find<br> the volunteers you need</h2>
+        <%= link_to "Post a project", new_project_path, class: "main-btn" %>
+      </div>
     </div>
   </div>
 
@@ -80,7 +83,7 @@
         </div>
       </div>
   </div>
-  <div class="sub-banner" style="background: url(<%= image_url('sub-banner2.svg') %>) no-repeat left; background-size: 50%; background-color: white;">
+  <div id='pre-footer' class="sub-banner" style="background: url(<%= image_url('sub-banner2.svg') %>) no-repeat left; background-size: 50%; background-color: white;">
     <div class="home-margin">
       <h2>Conversations today could lead<br> to opportunity tomorrow</h2>
       <p>Sending messages to people is a great way<br> to build relationships as you take the next step<br> in your career or projects</p>
@@ -90,37 +93,38 @@
 
 
   <footer>
-    <div class="d-flex justify-content-around">
-
-    <%= image_tag "logo1.svg" %>
-    <div>
-      <h3>General</h3>
-      <li><a href="#">Sign Up</a></li>
-      <li><a href="#">Help Center</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Press</a></li>
-      <li><a href="#">Blog</a></li>
-      <li><a href="#">Careers</a></li>
-      <%= link_to "Developers", developers_path  %>
-    </div>
-    <div>
-      <h3>Browse</h3>
-      <li><a href="#">Projects</a></li>
-      <li><a href="#">News</a></li>
-      <li><a href="#">Fundraising</a></li>
-      <li><a href="#">Services</a></li>
-      <li><a href="#">Partners</a></li>
-    </div>
-    <div>
-      <h3>Directories</h3>
-      <li><a href="#">Projects</a></li>
-      <li><a href="#">Members</a></li>
-      <li><a href="#">Organizations</a></li>
-      <li><a href="#">News Letter</a></li>
-      <li><a href="#">Articles</a></li>
-      <li><a href="#">Feedbacks</a></li>
-      <li><a href="#">Schools</a></li>
-    </div>
+    <div class="footer-wrap">
+      <%= image_tag "logo1.svg" %>
+      <div class="footer-links">
+        <div>
+          <h3>General</h3>
+          <li><a href="#">Sign Up</a></li>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Careers</a></li>
+          <%= link_to "Developers", developers_path  %>
+        </div>
+        <div>
+          <h3>Browse</h3>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">News</a></li>
+          <li><a href="#">Fundraising</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Partners</a></li>
+        </div>
+        <div>
+          <h3>Directories</h3>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">Members</a></li>
+          <li><a href="#">Organizations</a></li>
+          <li><a href="#">News Letter</a></li>
+          <li><a href="#">Articles</a></li>
+          <li><a href="#">Feedbacks</a></li>
+          <li><a href="#">Schools</a></li>
+        </div>
+      </div>
     </div>
   </footer>
     <p class="credit"> <i class="fas fa-terminal"></i>   The-Good-Dev git:(team) ✗ Natalia, Ozgur & Emma  </p>
