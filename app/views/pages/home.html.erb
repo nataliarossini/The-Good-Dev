@@ -51,7 +51,7 @@
   <div class="sub-banner-sml" style="background-color: rgba(170, 216, 211, 0.3);">
     <div class="home-margin">
       <div>
-        <h2>Post your project and find<br> the volunteers you need</h2>
+        <h2>Post your project and find the volunteers you need</h2>
         <%= link_to "Post a project", new_project_path, class: "main-btn" %>
       </div>
     </div>
@@ -83,10 +83,13 @@
         </div>
       </div>
   </div>
-  <div id='pre-footer' class="sub-banner" style="background: url(<%= image_url('sub-banner2.svg') %>) no-repeat left; background-size: 50%; background-color: white;">
+  <div id='pre-footer' class="sub-banner" style="background-color: white;">
     <div class="home-margin">
-      <h2>Conversations today could lead<br> to opportunity tomorrow</h2>
-      <p>Sending messages to people is a great way<br> to build relationships as you take the next step<br> in your career or projects</p>
+      <%= image_tag 'sub-banner2.svg' %>
+      <div class="sub-wrap">
+        <h2>Conversations today could lead<br> to opportunity tomorrow</h2>
+        <p>Sending messages to people is a great way to build relationships as you take the next step in your career or projects</p>
+      </div>
     </div>
   </div>
 

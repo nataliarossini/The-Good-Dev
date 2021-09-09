@@ -30,6 +30,12 @@ a:hover {
   .container-cards {
     grid-template-columns: 1fr 1fr 1fr;
   }
+  .banner h1 {
+    text-align: center;
+  }
+  .banner .banner-btns {
+    text-align: center;
+  }
 }
 
 @media (max-width: 1400px) {
@@ -44,7 +50,7 @@ a:hover {
   }
   .banner {
     flex-direction: column;
-    justify-content: unset;
+    justify-content: space-around;
     height: fit-content;
     // h1 {
     //   margin: 0 24px;
@@ -109,6 +115,7 @@ a:hover {
     }
   }
   .banner {
+    text-align: inherit;
     height: fit-content;
     h1 {
       font-size: 2rem;
@@ -211,6 +218,18 @@ a:hover {
     }
   } 
   
+}
+
+@media (max-width: 320px) and (max-width: 575px) {
+  .banner img {
+    height: 200px;
+  }
+  p {
+    font-size: 16px !important;
+  }
+  .container-home .container-howitworks {
+    margin-top: 48px;
+  }
 }
 
 @media (max-width: 100px) and (max-width: 575px) {
