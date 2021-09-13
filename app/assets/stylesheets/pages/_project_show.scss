@@ -48,6 +48,20 @@
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
+.pict-org{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  h3 {
+    a{
+      color: #3F3D56;
+      transition: 0.2s;
+      &:hover {
+        color: #00ADB5;
+      }
+    }
+  }
+}
 
 .pict-org img{
  border-radius: 50%;
@@ -110,6 +124,7 @@
 .proj-org {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
   .line {
     display: flex;
