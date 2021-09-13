@@ -34,11 +34,11 @@
           <% if current_user && @project.organization.user != current_user %>
             <% if @chatroom %>
               <%= link_to chatroom_path(@chatroom) do %>
-                <i class="far fa-comments"></i>
+                <i class="fas fa-comments"></i>
               <% end %>
             <% else %>
               <%= link_to project_chatrooms_path(@project), method: :post do %>
-                <i class="far fa-comments"></i>
+                <i class="fas fa-comments"></i>
               <% end %>
             <% end %>
           <% end %>
